@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "506374213583",
+    "project_id": "activemind-339406",
+    "storage_bucket": "activemind-339406.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506374213583:android:fda8595b2c0223befaccba",
+        "android_client_info": {
+          "package_name": "com.example.activemind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506374213583-7jir9pihsvtlft52qmcraplebhtpiq4f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.activemind",
+            "certificate_hash": "cb7a0563bfd964e5213edb0f08865ff3303cba4c"
+          }
+        },
+        {
+          "client_id": "506374213583-a2lr70qocehd6jfqs518h6dcd7q608b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOj6Y4GU4-Nosk0B4DxPHy2WTqJcRKX1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506374213583-a2lr70qocehd6jfqs518h6dcd7q608b0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
