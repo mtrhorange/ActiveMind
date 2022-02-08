@@ -10,4 +10,15 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_numbergame">Number Game</string>
+
+    <string name="numbergame_title">Number Memory</string>
+    <string name="num_holder">12345</string>
+    <string name="level_holder">Level 5</string>
+    <string name="text_number">Number</string>
+    <string name="text_answer">Your answer</string>
+    <string name="text_submit">Submit</string>
+    <string name="text_next">Next</string>
+    <string name="text_start">Start</string>
+
 </resources>
