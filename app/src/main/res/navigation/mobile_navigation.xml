@@ -28,4 +28,10 @@
         android:name="com.example.activemind.ui.numbergame.NumberGameFragment"
         android:label="@string/menu_numbergame"
         tools:layout="@layout/fragment_numbergame" />
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.activemind.ui.login.LoginFragment"
+        android:label="@string/menu_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>
