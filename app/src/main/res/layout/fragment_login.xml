@@ -223,7 +223,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="22dp"
-            android:ems="10"
+            android:textSize="22sp"
             android:hint="Email Address"
             android:inputType="textEmailAddress"
             android:visibility="visible"

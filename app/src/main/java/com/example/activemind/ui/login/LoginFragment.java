@@ -140,6 +140,13 @@ public class LoginFragment extends Fragment {
             public void afterTextChanged(Editable s) { }
         });
 
+        sendForgotBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendPasswordResetEmail(forgotPassEmailEdit.getText().toString().trim());
+            }
+        }));
+
         return root;
     }
 
@@ -304,6 +311,27 @@ public class LoginFragment extends Fragment {
         passwordEdit.setText("");
         loginState = LoginState.OUT;
         refreshUI();
+    }
+
+    /**
+     * Sends a password reset email to the User
+     * @param emailTo Email address to send the email to
+     */
+    private void SendPasswordResetEmail(String emailTo) {
+        firebaseAuth.sendPasswordResetEmail(emailTo).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(getContext(), "Password reset email sent to " + emailTo, Toast.LENGTH_LONG).show();
+                    forgotPassEmailEdit.setText("");
+                    viewState = ViewState.LOGINOUT;
+                    refreshUI();
+                }
+                else {
+                    Toast.makeText(getContext(), "Error, email not sent", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
