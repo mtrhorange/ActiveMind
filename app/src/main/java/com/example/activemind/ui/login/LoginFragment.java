@@ -27,6 +27,7 @@ import androidx.navigation.Navigation;
 import com.example.activemind.R;
 import com.example.activemind.databinding.FragmentLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
@@ -37,6 +38,11 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginFragment extends Fragment {
 
@@ -65,6 +71,7 @@ public class LoginFragment extends Fragment {
     //Firebase
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
+    private FirebaseFirestore db;
 
     //States
     private enum LoginState { IN, OUT }
@@ -213,6 +220,7 @@ public class LoginFragment extends Fragment {
         //Firebase
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
 
         //set states
         loginState = firebaseUser != null ? LoginState.IN : LoginState.OUT;
@@ -380,15 +388,14 @@ public class LoginFragment extends Fragment {
 
     /**
      * Validate user inputs for registration, ensuring no blanks and proper format
+     * @param fS First Name
+     * @param lS Last Name
+     * @param eS Email
+     * @param pS Password
+     * @param cPS Confirm Password
      * @return True if inputs are valid, False if invalid
      */
-    private boolean validateRegisterInputs()
-    {
-        String fS = registerFNameEdit.getText().toString().trim(),
-                lS = registerLNameEdit.getText().toString().trim(),
-                eS = registerEmailEdit.getText().toString().trim(),
-                pS = registerPasswordEdit.getText().toString().trim(),
-                cPS = registerConfirmPasswordEdit.getText().toString().trim();
+    private boolean validateRegisterInputs(String fS, String lS, String eS, String pS, String cPS) {
         boolean isBlankInputs = true;
 
         if (cPS.isEmpty()) { registerConfirmPasswordEdit.setError("Must not be empty"); registerConfirmPasswordEdit.requestFocus(); isBlankInputs = false;}
@@ -400,33 +407,28 @@ public class LoginFragment extends Fragment {
         if (!isBlankInputs) { return false; }
 
         //check if email is valid format
-        if (!eS.isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(eS).matches())
-        {
+        if (!eS.isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(eS).matches()) {
             registerEmailEdit.setError("Invalid Email address");
             registerEmailEdit.requestFocus();
             return false;
         }
         //password
-        else if (!pS.isEmpty() && !cPS.isEmpty())
-        {
+        else if (!pS.isEmpty() && !cPS.isEmpty()) {
             //check if password matches confirm password
-            if (!pS.equals(cPS))
-            {
+            if (!pS.equals(cPS)) {
                 registerPasswordEdit.setError("Password and Confirm Password must match");
                 registerConfirmPasswordEdit.setError("Password and Confirm Password must match");
                 registerPasswordEdit.requestFocus();
                 return false;
             }
             //check if there is whitespace in the password
-            else if (pS.contains(" "))
-            {
+            else if (pS.contains(" ")) {
                 registerPasswordEdit.setError("Password must not contain spaces");
                 registerPasswordEdit.requestFocus();
                 return false;
             }
             //ensure password is at least 6 char long
-            else if (pS.length() < 6)
-            {
+            else if (pS.length() < 6) {
                 registerPasswordEdit.setError("Password must contain at least 6 characters");
                 registerPasswordEdit.requestFocus();
                 return false;
@@ -440,43 +442,53 @@ public class LoginFragment extends Fragment {
      * Register Firebase user
      */
     private void registerUser() {
+        String fS = registerFNameEdit.getText().toString().trim(),
+                lS = registerLNameEdit.getText().toString().trim(),
+                eS = registerEmailEdit.getText().toString().trim(),
+                pS = registerPasswordEdit.getText().toString().trim(),
+                cPS = registerConfirmPasswordEdit.getText().toString().trim();
         //input validation before sending to Firebase
-        if (validateRegisterInputs())
-        {
+        if (validateRegisterInputs(fS, lS, eS, pS, cPS)) {
             String s1 = registerEmailEdit.getText().toString().trim();
             String s2 = registerPasswordEdit.getText().toString().trim();
-            firebaseAuth.createUserWithEmailAndPassword(s1, s2).addOnCompleteListener(new OnCompleteListener<AuthResult>()
-            {
+            firebaseAuth.createUserWithEmailAndPassword(s1, s2).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
-                public void onComplete(@NonNull Task<AuthResult> task)
-                {
-                    if (task.isSuccessful())
-                    {
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
                         FirebaseUser user = firebaseAuth.getCurrentUser();
                         Toast.makeText(getContext(), "Registered", Toast.LENGTH_SHORT).show();
                         sendEmailVerification(user);
+
                         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                 .setDisplayName(registerFNameEdit.getText().toString().trim() + " " + registerLNameEdit.getText().toString().trim()).build();
                         user.updateProfile(profileUpdates);
+
+                        DocumentReference docRef = db.collection("Users").document(user.getUid().toString());
+                        Map<String, Object> userInfo = new HashMap<>();
+                        userInfo.put("First Name", fS);
+                        userInfo.put("Last Name", lS);
+                        userInfo.put("Email", eS);
+                        docRef.set(userInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.i("Register User", "Successfully added user doc to Firestore");
+                            }
+                        });
+
                         viewState = ViewState.LOGINOUT;
                         refreshUI();
                     }
-                    else
-                    {
-                        try
-                        {
+                    else {
+                        try {
                             throw task.getException();
                         }
-                        catch(FirebaseAuthInvalidCredentialsException e)
-                        {
+                        catch(FirebaseAuthInvalidCredentialsException e) {
                             Toast.makeText(getContext(), "Registration Failed: Invalid email", Toast.LENGTH_SHORT).show();
                         }
-                        catch(FirebaseAuthUserCollisionException e)
-                        {
+                        catch(FirebaseAuthUserCollisionException e) {
                             Toast.makeText(getContext(), "Registration Failed: Email already registered", Toast.LENGTH_SHORT).show();
                         }
-                        catch (Exception e)
-                        {
+                        catch (Exception e) {
                             Log.e(null, e.getMessage());
                         }
                     }
