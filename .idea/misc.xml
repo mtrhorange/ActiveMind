@@ -8,24 +8,53 @@
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/content_main.xml" value="0.29846014492753625" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/drawable/ic_menu_login.xml" value="0.35625" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/drawable/ic_menu_numbergame.xml" value="0.35625" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.35625" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/activity_main.xml" value="0.33152173913043476" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/app_bar_main.xml" value="0.33152173913043476" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/content_main.xml" value="0.3359375" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_gallery.xml" value="0.33152173913043476" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_home.xml" value="0.3359375" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_login.xml" value="0.3359375" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_numbergame.xml" value="0.2717391304347826" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_slideshow.xml" value="0.3359375" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_test.xml" value="0.3359375" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/nav_header_main.xml" value="0.3359375" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/menu/activity_main_drawer.xml" value="0.3359375" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/background.xml" value="0.325" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/background_bottom.xml" value="0.2825" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/graiden_color.xml" value="0.331" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2255" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2825" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2825" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/ic_menu_login.xml" value="0.335" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/ic_menu_numbergame.xml" value="0.1455" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/question_background.xml" value="0.2595" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/rounded_box.xml" value="0.2825" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/submit_btn.xml" value="0.335" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/textbox.xml" value="0.335" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_change_password.xml" value="0.13269927536231885" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_end_game.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_game.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_login.xml" value="0.32563405797101447" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_register_page.xml" value="0.278125" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_signin.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_signup.xml" value="0.2776268115942029" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_sub_main.xml" value="0.33" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/app_bar_main.xml" value="0.3500905797101449" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/calendar_day.xml" value="0.15577507598784193" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/content_main.xml" value="0.3500905797101449" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/desgin_fragment.xml" value="0.135258358662614" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/design_fragment.xml" value="0.135258358662614" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_desgin.xml" value="0.135258358662614" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_history.xml" value="0.33" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_new_home.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_numbergame.xml" value="0.135258358662614" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_slideshow.xml" value="0.278125" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/item_category.xml" value="0.33" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/layout.xml" value="0.13269927536231885" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/nav_header_main.xml" value="0.278125" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/menu/activity_main_drawer.xml" value="0.278125" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/menu/main.xml" value="0.278125" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/menu/menu_bottom.xml" value="0.278125" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
