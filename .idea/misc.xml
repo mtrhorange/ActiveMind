@@ -22,15 +22,24 @@
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/textbox.xml" value="0.335" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_change_password.xml" value="0.13269927536231885" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_end_game.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_end_game2.xml" value="0.15577507598784193" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_end_number_game.xml" value="0.17028985507246377" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_end_sequence.xml" value="0.17028985507246377" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_end_word.xml" value="0.2" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_game.xml" value="0.25" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_login.xml" value="0.32563405797101447" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_number_memory.xml" value="0.15577507598784193" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_register_page.xml" value="0.278125" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_sequence_memory.xml" value="0.17028985507246377" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_sequence_momory.xml" value="0.25" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_signin.xml" value="0.25" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_signup.xml" value="0.2776268115942029" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_squence_memory.xml" value="0.15577507598784193" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_sub_main.xml" value="0.33" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_word_memory.xml" value="0.15577507598784193" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/app_bar_main.xml" value="0.3500905797101449" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/calendar_day.xml" value="0.15577507598784193" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/content_main.xml" value="0.3500905797101449" />
@@ -38,6 +47,7 @@
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/design_fragment.xml" value="0.135258358662614" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_desgin.xml" value="0.135258358662614" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.18" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_history.xml" value="0.33" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />

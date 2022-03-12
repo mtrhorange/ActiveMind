@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".games.SequenceMemoryActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/levelBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:text="Level: 1"
+            android:textColor="@color/color_white"
+            android:textSize="34dp" />
+
+        <TextView
+            android:id="@+id/livesBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:text="Live: 3"
+            android:textAlignment="textEnd"
+            android:textColor="@color/color_white"
+            android:textSize="34dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Remeber the Sequence"
+        android:textColor="@color/color_white"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="366dp"
+        android:layout_height="366dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBox">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/gameBtn1"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:text="Press" />
+
+            <Button
+                android:id="@+id/gameBtn2"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:text="Press" />
+
+            <Button
+                android:id="@+id/gameBtn3"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:text="Press" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/gameBtn4"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:text="Press" />
+
+            <Button
+                android:id="@+id/gameBtn5"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:text="Press" />
+
+            <Button
+                android:id="@+id/gameBtn6"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:text="Press" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/gameBtn7"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:text="Press" />
+
+            <Button
+                android:id="@+id/gameBtn8"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:text="Press" />
+
+            <Button
+                android:id="@+id/gameBtn9"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:text="Press" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/retryBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Retry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Back Home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/retryBtn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

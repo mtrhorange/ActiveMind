@@ -5,77 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".GameActivity">
+    tools:context=".games.EndWordActivity">
 
     <TextView
-        android:id="@+id/textBox"
+        android:id="@+id/endGameBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:text="Remeber the number"
+        android:text="End Game"
         android:textColor="@color/color_white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/numberView"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/game_background"
+    <ImageView
+        android:id="@+id/endGameImage"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBox" />
+        app:layout_constraintTop_toBottomOf="@+id/endGameBox"
+        app:srcCompat="@drawable/brain_word" />
 
     <TextView
-        android:id="@+id/numberBox"
+        android:id="@+id/scoreBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="777"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="@+id/numberView"
-        app:layout_constraintStart_toStartOf="@+id/numberView"
-        app:layout_constraintTop_toTopOf="@+id/numberView" />
-
-    <TextView
-        android:id="@+id/inputBox"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/textbox"
-        android:gravity="center"
-        android:hint="Enter your number"
+        android:layout_marginTop="30dp"
+        android:text="scores"
+        android:textColor="@color/color_white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberView" />
+        app:layout_constraintTop_toBottomOf="@+id/endGameImage" />
 
     <Button
-        android:id="@+id/confirmBtn"
+        android:id="@+id/playAgainBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Confirm"
+        android:text="Play Again"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputBox" />
+        app:layout_constraintTop_toBottomOf="@+id/scoreBox" />
 
     <Button
-        android:id="@+id/backBtn"
+        android:id="@+id/backBtn2"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="Back Home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/playAgainBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

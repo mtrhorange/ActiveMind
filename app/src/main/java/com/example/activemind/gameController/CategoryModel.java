@@ -1,9 +1,12 @@
-package com.example.activemind;
+package com.example.activemind.gameController;
+
+import android.graphics.drawable.Drawable;
 
 public class CategoryModel {
-    private  String categoryId, categoryName, categoryImage;
+    private  String categoryId, categoryName;
+    private int categoryImage;
 
-    public CategoryModel(String categoryId, String categoryName, String categoryImage) {
+    public CategoryModel(String categoryId, String categoryName, int categoryImage) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.categoryImage = categoryImage;
@@ -29,11 +32,11 @@ public class CategoryModel {
         this.categoryName = categoryName;
     }
 
-    public String getCategoryImage() {
+    public int getCategoryImage() {
         return categoryImage;
     }
 
-    public void setCategoryImage(String categoryImage) {
+    public void setCategoryImage(int categoryImage) {
         this.categoryImage = categoryImage;
     }
 }
