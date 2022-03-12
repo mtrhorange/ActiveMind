@@ -1,8 +1,7 @@
-package com.example.activemind;
+package com.example.activemind.gameController;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.activemind.R;
+import com.example.activemind.games.NumberMemoryActivity;
+import com.example.activemind.games.SequenceMemoryActivity;
+import com.example.activemind.games.WordMemoryActivity;
 
 import java.util.ArrayList;
 
@@ -36,14 +40,25 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         CategoryModel model = categoryModels.get(position);
 
         holder.textView.setText(model.getCategoryName());
+        holder.imageView.setImageResource(model.getCategoryImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(model.getCategoryId() == "Number Game"){
-                Intent intent = new Intent(context, GameActivity.class);
-                intent.putExtra("catId",model.getCategoryId());
-                context.startActivity(intent);
+                if(model.getCategoryId() == "Number Memory Game"){
+                    Intent intent = new Intent(context, NumberMemoryActivity.class);
+                    intent.putExtra("catId",model.getCategoryId());
+                    context.startActivity(intent);
+                }
+                else if(model.getCategoryId() == "Sequence Memory Game"){
+                    Intent intent = new Intent(context, SequenceMemoryActivity.class);
+                    intent.putExtra("catId",model.getCategoryId());
+                    context.startActivity(intent);
+                }
+                else if(model.getCategoryId() == "Word Memory Game"){
+                    Intent intent = new Intent(context, WordMemoryActivity.class);
+                    intent.putExtra("catId",model.getCategoryId());
+                    context.startActivity(intent);
                 }
                 else{
                 }

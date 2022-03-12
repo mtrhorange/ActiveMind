@@ -74,7 +74,6 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.activemind.databinding.ActivityMainBinding;
-import com.example.activemind.databinding.ActivitySubMainBinding;
 
 import java.util.ArrayList;
 
@@ -116,6 +115,10 @@ public class MainActivity extends AppCompatActivity {
                         transaction.commit();
                         break;
                     case 2:
+                        transaction.replace(R.id.content, new GraphFragment());
+                        transaction.commit();
+                        break;
+                    case 3:
                         transaction.replace(R.id.content, new ProfileFragment());
                         transaction.commit();
                         break;

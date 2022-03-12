@@ -19,19 +19,28 @@
             android:resource="@color/purple_700" />
 
         <activity
+            android:name=".games.EndWordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".games.EndSequenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".games.EndNumberGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".games.WordMemoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".games.SequenceMemoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChangePasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".EndGameActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GameActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SubMainActivity"
+            android:name=".games.NumberMemoryActivity"
             android:exported="false" />
         <activity
             android:name=".SignupActivity"
