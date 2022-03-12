@@ -27,26 +27,31 @@ import androidx.navigation.Navigation;
 import com.example.activemind.R;
 import com.example.activemind.databinding.FragmentLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginFragment extends Fragment {
 
     private LoginViewModel loginViewModel;
     private FragmentLoginBinding binding;
 
-    private ConstraintLayout loginGroup, loggedInGroup, ForgotPassGroup;
+    private ConstraintLayout loginGroup, loggedInGroup, forgotPassGroup, registerGroup;
     //Login screen UI elements
-    private TextInputLayout emailTextLayout, passwordTextLayout;
-    private TextView textLogin, textForgotPassword;
+    private TextView textForgotPassword;
     private TextInputEditText emailEdit, passwordEdit;
     private Button loginBtn, registerBtn;
 
@@ -58,14 +63,20 @@ public class LoginFragment extends Fragment {
     private EditText forgotPassEmailEdit;
     private Button sendForgotBtn;
 
+    //Register screen UI elements
+    private EditText registerFNameEdit, registerLNameEdit, registerEmailEdit, registerPasswordEdit, registerConfirmPasswordEdit;
+    private Button doRegisterBtn;
+    private TextView textAlrHaveAcc;
+
     //Firebase
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
+    private FirebaseFirestore db;
 
     //States
     private enum LoginState { IN, OUT }
     private LoginState loginState;
-    private enum ViewState { LOGINOUT, REGISTER, FORGOT }
+    private enum ViewState { LOGINOUT, FORGOT, REGISTER }
     private ViewState viewState;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -91,7 +102,7 @@ public class LoginFragment extends Fragment {
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                if (viewState == ViewState.FORGOT) {
+                if (viewState == ViewState.FORGOT || viewState == ViewState.REGISTER) {
                     Navigation.findNavController(getView()).navigate(R.id.action_nav_login_self);
                 } else {
                     setEnabled(false);
@@ -143,7 +154,30 @@ public class LoginFragment extends Fragment {
         sendForgotBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SendPasswordResetEmail(forgotPassEmailEdit.getText().toString().trim());
+                sendPasswordResetEmail(forgotPassEmailEdit.getText().toString().trim());
+            }
+        }));
+
+        registerBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewState = ViewState.REGISTER;
+                refreshUI();
+            }
+        }));
+
+        textAlrHaveAcc.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewState = ViewState.LOGINOUT;
+                refreshUI();
+            }
+        }));
+
+        doRegisterBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerUser();
             }
         }));
 
@@ -156,9 +190,6 @@ public class LoginFragment extends Fragment {
     public void setup() {
         //UI
         loginGroup = binding.LoginGroup;
-        emailTextLayout = binding.emailTextLayout;
-        passwordTextLayout = binding.passwordTextLayout;
-        textLogin = binding.textLogin;
         textForgotPassword = binding.textForgotPassword;
         emailEdit = binding.emailTextEntry;
         passwordEdit = binding.passwordTextEntry;
@@ -169,9 +200,18 @@ public class LoginFragment extends Fragment {
         textLoggedIn = binding.textLoggedIn;
         logoutBtn = binding.buttonLogout;
 
-        ForgotPassGroup = binding.ForgotPasswordGroup;
+        forgotPassGroup = binding.ForgotPasswordGroup;
         forgotPassEmailEdit = binding.forgotEmailTextEntry;
         sendForgotBtn = binding.buttonSendForgot;
+
+        registerGroup = binding.RegisterGroup;
+        registerFNameEdit = binding.registerFirstNameTextEntry;
+        registerLNameEdit = binding.registerLastNameTextEntry;
+        registerEmailEdit = binding.registerEmailTextEntry;
+        registerPasswordEdit = binding.registerPasswordTextEntry;
+        registerConfirmPasswordEdit = binding.registerConfirmPasswordTextEntry;
+        doRegisterBtn = binding.buttonDoRegister;
+        textAlrHaveAcc = binding.textAlreadyHaveAccount;
 
         SpannableString fpContent = new SpannableString("Forgot Password?");
         fpContent.setSpan(new UnderlineSpan(), 0, fpContent.length(), 0);
@@ -180,6 +220,7 @@ public class LoginFragment extends Fragment {
         //Firebase
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
 
         //set states
         loginState = firebaseUser != null ? LoginState.IN : LoginState.OUT;
@@ -196,23 +237,34 @@ public class LoginFragment extends Fragment {
             if (loginState == LoginState.OUT ) {
                 loginGroup.setVisibility(View.VISIBLE);
                 loggedInGroup.setVisibility(View.GONE);
-                ForgotPassGroup.setVisibility(View.GONE);
+                forgotPassGroup.setVisibility(View.GONE);
+                registerGroup.setVisibility(View.GONE);
             }
             else if (loginState == LoginState.IN ) {
                 loginGroup.setVisibility(View.GONE);
                 loggedInGroup.setVisibility(View.VISIBLE);
-                ForgotPassGroup.setVisibility(View.GONE);
+                forgotPassGroup.setVisibility(View.GONE);
+                registerGroup.setVisibility(View.GONE);
 
                 textLoggedIn.setText("Logged in: " + firebaseUser.getDisplayName() + "\n" + firebaseUser.getEmail());
             }
         }
-        else if (viewState == ViewState.REGISTER) {
-
-        }
         else if (viewState == ViewState.FORGOT) {
             loginGroup.setVisibility(View.GONE);
             loggedInGroup.setVisibility(View.GONE);
-            ForgotPassGroup.setVisibility(View.VISIBLE);
+            forgotPassGroup.setVisibility(View.VISIBLE);
+            registerGroup.setVisibility(View.GONE);
+        }
+        else if (viewState == ViewState.REGISTER) {
+            registerFNameEdit.setText("");
+            registerLNameEdit.setText("");
+            registerEmailEdit.setText("");
+            registerPasswordEdit.setText("");
+            registerConfirmPasswordEdit.setText("");
+            loginGroup.setVisibility(View.GONE);
+            loggedInGroup.setVisibility(View.GONE);
+            forgotPassGroup.setVisibility(View.GONE);
+            registerGroup.setVisibility(View.VISIBLE);
         }
     }
 
@@ -290,7 +342,7 @@ public class LoginFragment extends Fragment {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(getContext(), "Email sent to " + user.getEmail(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Verification email sent to " + user.getEmail(), Toast.LENGTH_LONG).show();
                     }
                     else {
                         Toast.makeText(getContext(), "Failed to send email", Toast.LENGTH_SHORT).show();
@@ -317,7 +369,7 @@ public class LoginFragment extends Fragment {
      * Sends a password reset email to the User
      * @param emailTo Email address to send the email to
      */
-    private void SendPasswordResetEmail(String emailTo) {
+    private void sendPasswordResetEmail(String emailTo) {
         firebaseAuth.sendPasswordResetEmail(emailTo).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -332,6 +384,117 @@ public class LoginFragment extends Fragment {
                 }
             }
         });
+    }
+
+    /**
+     * Validate user inputs for registration, ensuring no blanks and proper format
+     * @param fS First Name
+     * @param lS Last Name
+     * @param eS Email
+     * @param pS Password
+     * @param cPS Confirm Password
+     * @return True if inputs are valid, False if invalid
+     */
+    private boolean validateRegisterInputs(String fS, String lS, String eS, String pS, String cPS) {
+        boolean isBlankInputs = true;
+
+        if (cPS.isEmpty()) { registerConfirmPasswordEdit.setError("Must not be empty"); registerConfirmPasswordEdit.requestFocus(); isBlankInputs = false;}
+        if (pS.isEmpty()) { registerPasswordEdit.setError("Must not be empty"); registerPasswordEdit.requestFocus(); isBlankInputs = false;}
+        if (eS.isEmpty()) { registerEmailEdit.setError("Must not be empty"); registerEmailEdit.requestFocus(); isBlankInputs = false;}
+        if (lS.isEmpty()) { registerLNameEdit.setError("Must not be empty"); registerLNameEdit.requestFocus(); isBlankInputs = false;}
+        if (fS.isEmpty()) { registerFNameEdit.setError("Must not be empty"); registerFNameEdit.requestFocus(); isBlankInputs = false;}
+
+        if (!isBlankInputs) { return false; }
+
+        //check if email is valid format
+        if (!eS.isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(eS).matches()) {
+            registerEmailEdit.setError("Invalid Email address");
+            registerEmailEdit.requestFocus();
+            return false;
+        }
+        //password
+        else if (!pS.isEmpty() && !cPS.isEmpty()) {
+            //check if password matches confirm password
+            if (!pS.equals(cPS)) {
+                registerPasswordEdit.setError("Password and Confirm Password must match");
+                registerConfirmPasswordEdit.setError("Password and Confirm Password must match");
+                registerPasswordEdit.requestFocus();
+                return false;
+            }
+            //check if there is whitespace in the password
+            else if (pS.contains(" ")) {
+                registerPasswordEdit.setError("Password must not contain spaces");
+                registerPasswordEdit.requestFocus();
+                return false;
+            }
+            //ensure password is at least 6 char long
+            else if (pS.length() < 6) {
+                registerPasswordEdit.setError("Password must contain at least 6 characters");
+                registerPasswordEdit.requestFocus();
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Register Firebase user
+     */
+    private void registerUser() {
+        String fS = registerFNameEdit.getText().toString().trim(),
+                lS = registerLNameEdit.getText().toString().trim(),
+                eS = registerEmailEdit.getText().toString().trim(),
+                pS = registerPasswordEdit.getText().toString().trim(),
+                cPS = registerConfirmPasswordEdit.getText().toString().trim();
+        //input validation before sending to Firebase
+        if (validateRegisterInputs(fS, lS, eS, pS, cPS)) {
+            String s1 = registerEmailEdit.getText().toString().trim();
+            String s2 = registerPasswordEdit.getText().toString().trim();
+            firebaseAuth.createUserWithEmailAndPassword(s1, s2).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        Toast.makeText(getContext(), "Registered", Toast.LENGTH_SHORT).show();
+                        sendEmailVerification(user);
+
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(registerFNameEdit.getText().toString().trim() + " " + registerLNameEdit.getText().toString().trim()).build();
+                        user.updateProfile(profileUpdates);
+
+                        DocumentReference docRef = db.collection("Users").document(user.getUid().toString());
+                        Map<String, Object> userInfo = new HashMap<>();
+                        userInfo.put("First Name", fS);
+                        userInfo.put("Last Name", lS);
+                        userInfo.put("Email", eS);
+                        docRef.set(userInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.i("Register User", "Successfully added user doc to Firestore");
+                            }
+                        });
+
+                        viewState = ViewState.LOGINOUT;
+                        refreshUI();
+                    }
+                    else {
+                        try {
+                            throw task.getException();
+                        }
+                        catch(FirebaseAuthInvalidCredentialsException e) {
+                            Toast.makeText(getContext(), "Registration Failed: Invalid email", Toast.LENGTH_SHORT).show();
+                        }
+                        catch(FirebaseAuthUserCollisionException e) {
+                            Toast.makeText(getContext(), "Registration Failed: Email already registered", Toast.LENGTH_SHORT).show();
+                        }
+                        catch (Exception e) {
+                            Log.e(null, e.getMessage());
+                        }
+                    }
+                }
+            });
+        }
     }
 
     @Override
