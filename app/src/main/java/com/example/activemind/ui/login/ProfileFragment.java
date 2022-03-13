@@ -1,6 +1,13 @@
 package com.example.activemind.ui.login;
 
 import android.os.Bundle;
+
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
@@ -15,23 +22,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
-
 import com.example.activemind.R;
-import com.example.activemind.databinding.FragmentLoginBinding;
+import com.example.activemind.databinding.FragmentProfileBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
@@ -44,29 +43,31 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    private LoginViewModel loginViewModel;
-    private FragmentLoginBinding binding;
+    private FragmentProfileBinding binding;
 
-    private ConstraintLayout loginGroup, loggedInGroup, forgotPassGroup, registerGroup;
+    private ConstraintLayout loginGroup, loggedInGroup, forgotPassGroup, registerGroup, changePassGroup;
     //Login screen UI elements
     private TextView textForgotPassword;
-    private TextInputEditText emailEdit, passwordEdit;
+    private EditText emailEdit, passwordEdit;
     private Button loginBtn, registerBtn;
 
     //Logged in screen UI elements
-    private TextView textLoggedIn;
-    private Button logoutBtn;
+    private TextView textLoggedInName, textLoggedInEmail;
+    private Button logoutBtn, changePassBtn;
 
     //Forgot Password screen UI elements
     private EditText forgotPassEmailEdit;
-    private Button sendForgotBtn;
+    private Button sendForgotBtn, backForgotBtn;
 
     //Register screen UI elements
     private EditText registerFNameEdit, registerLNameEdit, registerEmailEdit, registerPasswordEdit, registerConfirmPasswordEdit;
-    private Button doRegisterBtn;
-    private TextView textAlrHaveAcc;
+    private Button doRegisterBtn, alrHaveAccBtn;
+
+    //Change Password screen UI elements
+    private EditText oldPassEdit, newPassEdit, confirmNewPassEdit;
+    private Button doChangePassBtn, cancelChangePassBtn;
 
     //Firebase
     private FirebaseAuth firebaseAuth;
@@ -76,24 +77,18 @@ public class LoginFragment extends Fragment {
     //States
     private enum LoginState { IN, OUT }
     private LoginState loginState;
-    private enum ViewState { LOGINOUT, FORGOT, REGISTER }
+    private enum ViewState { LOGINOUT, FORGOT, REGISTER, CHANGE }
     private ViewState viewState;
+
+    public ProfileFragment() {
+        // Required empty public constructor
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        loginViewModel =
-                new ViewModelProvider(this).get(LoginViewModel.class);
 
-        binding = FragmentLoginBinding.inflate(inflater, container, false);
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView textView = binding.textLogin;
-        loginViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
 
         //setup
         setup();
@@ -102,7 +97,7 @@ public class LoginFragment extends Fragment {
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                if (viewState == ViewState.FORGOT || viewState == ViewState.REGISTER) {
+                if (viewState == ViewState.FORGOT || viewState == ViewState.REGISTER || viewState == ViewState.CHANGE) {
                     Navigation.findNavController(getView()).navigate(R.id.action_nav_login_self);
                 } else {
                     setEnabled(false);
@@ -124,6 +119,14 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 firebaseLogout();
+            }
+        }));
+
+        changePassBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewState = ViewState.CHANGE;
+                refreshUI();
             }
         }));
 
@@ -158,6 +161,14 @@ public class LoginFragment extends Fragment {
             }
         }));
 
+        backForgotBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewState = ViewState.LOGINOUT;
+                refreshUI();
+            }
+        }));
+
         registerBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,7 +177,7 @@ public class LoginFragment extends Fragment {
             }
         }));
 
-        textAlrHaveAcc.setOnClickListener((new View.OnClickListener() {
+        alrHaveAccBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 viewState = ViewState.LOGINOUT;
@@ -178,6 +189,21 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 registerUser();
+            }
+        }));
+
+        doChangePassBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeFirebasePassword();
+            }
+        }));
+
+        cancelChangePassBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewState = ViewState.LOGINOUT;
+                refreshUI();
             }
         }));
 
@@ -197,12 +223,15 @@ public class LoginFragment extends Fragment {
         registerBtn = binding.buttonRegister;
 
         loggedInGroup = binding.LoggedInGroup;
-        textLoggedIn = binding.textLoggedIn;
+        textLoggedInName = binding.textLoggedInName;
+        textLoggedInEmail = binding.textLoggedInEmail;
         logoutBtn = binding.buttonLogout;
+        changePassBtn = binding.buttonChangePassword;
 
         forgotPassGroup = binding.ForgotPasswordGroup;
         forgotPassEmailEdit = binding.forgotEmailTextEntry;
         sendForgotBtn = binding.buttonSendForgot;
+        backForgotBtn = binding.buttonBackForgot;
 
         registerGroup = binding.RegisterGroup;
         registerFNameEdit = binding.registerFirstNameTextEntry;
@@ -211,7 +240,14 @@ public class LoginFragment extends Fragment {
         registerPasswordEdit = binding.registerPasswordTextEntry;
         registerConfirmPasswordEdit = binding.registerConfirmPasswordTextEntry;
         doRegisterBtn = binding.buttonDoRegister;
-        textAlrHaveAcc = binding.textAlreadyHaveAccount;
+        alrHaveAccBtn = binding.buttonAlreadyHaveAccount;
+
+        changePassGroup = binding.ChangePasswordGroup;
+        oldPassEdit = binding.oldPasswordTextEntry;
+        newPassEdit = binding.newPasswordTextEntry;
+        confirmNewPassEdit = binding.confirmNewPasswordTextEntry;
+        doChangePassBtn = binding.buttonDoChangePassword;
+        cancelChangePassBtn = binding.buttonCancelChangePassword;
 
         SpannableString fpContent = new SpannableString("Forgot Password?");
         fpContent.setSpan(new UnderlineSpan(), 0, fpContent.length(), 0);
@@ -239,14 +275,19 @@ public class LoginFragment extends Fragment {
                 loggedInGroup.setVisibility(View.GONE);
                 forgotPassGroup.setVisibility(View.GONE);
                 registerGroup.setVisibility(View.GONE);
+                changePassGroup.setVisibility(View.GONE);
             }
             else if (loginState == LoginState.IN ) {
                 loginGroup.setVisibility(View.GONE);
                 loggedInGroup.setVisibility(View.VISIBLE);
                 forgotPassGroup.setVisibility(View.GONE);
                 registerGroup.setVisibility(View.GONE);
-
-                textLoggedIn.setText("Logged in: " + firebaseUser.getDisplayName() + "\n" + firebaseUser.getEmail());
+                changePassGroup.setVisibility(View.GONE);
+                textLoggedInName.setText(firebaseUser.getDisplayName());
+                textLoggedInEmail.setText(firebaseUser.getEmail());
+                oldPassEdit.setText("");
+                newPassEdit.setText("");
+                confirmNewPassEdit.setText("");
             }
         }
         else if (viewState == ViewState.FORGOT) {
@@ -254,6 +295,7 @@ public class LoginFragment extends Fragment {
             loggedInGroup.setVisibility(View.GONE);
             forgotPassGroup.setVisibility(View.VISIBLE);
             registerGroup.setVisibility(View.GONE);
+            changePassGroup.setVisibility(View.GONE);
         }
         else if (viewState == ViewState.REGISTER) {
             registerFNameEdit.setText("");
@@ -265,6 +307,14 @@ public class LoginFragment extends Fragment {
             loggedInGroup.setVisibility(View.GONE);
             forgotPassGroup.setVisibility(View.GONE);
             registerGroup.setVisibility(View.VISIBLE);
+            changePassGroup.setVisibility(View.GONE);
+        }
+        else if (viewState == ViewState.CHANGE) {
+            loginGroup.setVisibility(View.GONE);
+            loggedInGroup.setVisibility(View.GONE);
+            forgotPassGroup.setVisibility(View.GONE);
+            registerGroup.setVisibility(View.GONE);
+            changePassGroup.setVisibility(View.VISIBLE);
         }
     }
 
@@ -468,6 +518,9 @@ public class LoginFragment extends Fragment {
                         userInfo.put("First Name", fS);
                         userInfo.put("Last Name", lS);
                         userInfo.put("Email", eS);
+                        userInfo.put("NumberHighScore", 0);
+                        userInfo.put("SequenceHighScore", 0);
+                        userInfo.put("WordHighScore", 0);
                         docRef.set(userInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
@@ -497,10 +550,97 @@ public class LoginFragment extends Fragment {
         }
     }
 
+    /**
+     * Validate user inputs for registration, ensuring no blanks and proper format
+     * @param pS Password
+     * @param nPS New Password
+     * @param cnPS Confirm New Password
+     * @return True if inputs are valid, False if invalid
+     */
+    private boolean validateChangePasswordInputs(String pS, String nPS, String cnPS) {
+        boolean isBlankInputs = true;
+
+        if (cnPS.isEmpty()) { confirmNewPassEdit.setError("Must not be empty"); confirmNewPassEdit.requestFocus(); isBlankInputs = false;}
+        if (nPS.isEmpty()) { newPassEdit.setError("Must not be empty"); newPassEdit.requestFocus(); isBlankInputs = false;}
+        if (pS.isEmpty()) { oldPassEdit.setError("Must not be empty"); oldPassEdit.requestFocus(); isBlankInputs = false;}
+
+        if (!isBlankInputs) { return false; }
+
+        //check if password matches confirm password
+        if (!nPS.equals(cnPS)) {
+            newPassEdit.setError("Must Match Confirm New Password");
+            confirmNewPassEdit.setError("Must Match New Password");
+            newPassEdit.requestFocus();
+            return false;
+        }
+        //check if there is whitespace in the password
+        else if (nPS.contains(" ")) {
+            newPassEdit.setError("Password must not contain spaces");
+            newPassEdit.requestFocus();
+            return false;
+        }
+        //ensure password is at least 6 char long
+        else if (nPS.length() < 6) {
+            newPassEdit.setError("Password must contain at least 6 characters");
+            newPassEdit.requestFocus();
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Re-Auths user based on current password, validates and set new password
+     */
+    private void changeFirebasePassword() {
+        String pS = oldPassEdit.getText().toString().trim(),
+                nPS = newPassEdit.getText().toString().trim(),
+                cnPS = confirmNewPassEdit.getText().toString().trim();
+
+        if (validateChangePasswordInputs(pS, nPS, cnPS)) {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), pS);
+
+            // Prompt the user to re-provide their sign-in credentials
+            user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        user.updatePassword(nPS).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getContext(), "Password changed", Toast.LENGTH_SHORT).show();
+                                    viewState = ViewState.LOGINOUT;
+                                    refreshUI();
+                                }
+                                else {
+                                    Toast.makeText(getContext(), "Failed to change password", Toast.LENGTH_SHORT).show();
+                                    Log.e(null, task.getException().toString());
+                                }
+                            }
+                        });
+                    }
+                    else {
+                        try {
+                            throw task.getException();
+                        }
+                        catch(FirebaseAuthInvalidCredentialsException e) {
+                            Toast.makeText(getContext(), "Old password is incorrect", Toast.LENGTH_SHORT).show();
+                        }
+                        catch (Exception e) {
+                            Toast.makeText(getContext(), "Failed to change password", Toast.LENGTH_SHORT).show();
+                            Log.e(null, e.getMessage());
+                        }
+                    }
+                }
+            });
+        }
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
-
 }
