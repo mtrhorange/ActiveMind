@@ -85,11 +85,8 @@ public class NumberGameFragment extends Fragment {
         startBtn = binding.startBtn;
         progressBar = binding.countdownbar;
         textView0 = binding.textView0;
-        textView1 = binding.textView1;
-        textView2 = binding.textView2;
         textView3 = binding.textView3;
         textView4 = binding.textView4;
-        answerEdit = binding.answerEdit;
         numberText = binding.numberText;
         numberText2 = binding.numberText2;
         answerText = binding.answerText;

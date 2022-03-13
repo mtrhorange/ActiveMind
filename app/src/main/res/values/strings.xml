@@ -20,7 +20,9 @@
     <string name="text_answer">Your answer</string>
     <string name="text_submit">Submit</string>
     <string name="text_next">Next</string>
+    <string name="text_retry">Retry</string>
     <string name="text_start">Start</string>
+
 
     <string name="login_title">Login</string>
 
