@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ui.numbergame.NumberGameFragment">
 
     <TextView
@@ -41,7 +42,7 @@
         android:id="@+id/startBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/pressBtnText"
         android:layout_alignParentLeft="true"
         android:background="@color/lime"
         android:text="@string/text_start"
@@ -101,41 +102,41 @@
         app:layout_constraintVertical_bias="0.043" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/queryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="What was the number?"
-        android:textColor="#A4C639"
+        android:textColor="@color/white"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/answerEdit"
+        app:layout_constraintBottom_toTopOf="@+id/answerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.895" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/pressBtnText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="Press button to submit"
-        android:textColor="#A4C639"
+        android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/answerEdit"
+        app:layout_constraintBottom_toTopOf="@+id/answerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/queryText"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/answerEdit"
+        android:id="@+id/answerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_alignBottom="@+id/pressBtnText"
+        android:layout_toRightOf="@+id/pressBtnText"
         android:background="#CCCCCC"
         android:ems="10"
         android:inputType="number"
@@ -154,7 +155,7 @@
         android:id="@+id/submitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/pressBtnText"
         android:layout_alignParentLeft="true"
         android:background="@color/lime"
         android:text="@string/text_submit"
@@ -162,7 +163,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerEdit"
+        app:layout_constraintTop_toBottomOf="@+id/answerView"
         app:layout_constraintVertical_bias="0.048" />
 
     <TextView
@@ -251,7 +252,7 @@
         android:id="@+id/nextBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/pressBtnText"
         android:layout_alignParentLeft="true"
         android:background="@color/lime"
         android:text="@string/text_next"
