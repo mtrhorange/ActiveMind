@@ -19,6 +19,7 @@ import java.util.Random;
 import com.example.activemind.R;
 import com.example.activemind.databinding.ActivityNumberMemoryBinding;
 import com.example.activemind.databinding.FragmentNumbergameBinding;
+import com.example.activemind.firebase.FirebaseHelper;
 
 public class NumberMemoryActivity extends AppCompatActivity {
 
@@ -155,17 +156,14 @@ public class NumberMemoryActivity extends AppCompatActivity {
     }
 
     public void answerRound() {
-        displayQueryPage();
         answerInputText.setText("");
+        displayQueryPage();
     }
 
     public void submitAnswer() {
         playerAnswer = answerInputText.getText().toString();
         answerText.setText(playerAnswer);
-        //answerEdit.setText("");
 
-
-        String str = "";
         if (playerAnswer.equals(answerString))
             nextBtn.setText(R.string.text_next);
         else {
@@ -177,6 +175,7 @@ public class NumberMemoryActivity extends AppCompatActivity {
     public void endRound() {
         nextBtn.setText(R.string.text_retry);
         isGameEnded = true;
+        FirebaseHelper.updateUserGameData("NumberMemory", level);
     }
 
     public void displayStartPage() {
