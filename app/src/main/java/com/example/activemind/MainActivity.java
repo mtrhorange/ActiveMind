@@ -68,14 +68,11 @@ package com.example.activemind;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.example.activemind.databinding.ActivityMainBinding;
-
-import java.util.ArrayList;
+import com.example.activemind.ui.login.ProfileFragment;
 
 import me.ibrahimsn.lib.OnItemSelectedListener;
 
