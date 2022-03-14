@@ -19,38 +19,35 @@
 
     </com.github.mikephil.charting.charts.BarChart>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="180dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/view4"
+    <Button
+        android:id="@+id/numberMemoryGameBtn"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:text="Number Memory Game"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barChart" />
 
-        <Button
-            android:id="@+id/numberMemoryGameBtn"
-            android:layout_width="250dp"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Number Memory Game" />
+    <Button
+        android:id="@+id/sequenceMemoryGameBtn"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:text="Sequence Memory Game"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberMemoryGameBtn" />
 
-        <Button
-            android:id="@+id/sequenceMemoryGameBtn"
-            android:layout_width="250dp"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Sequence Memory Game" />
-
-        <Button
-            android:id="@+id/wordMemoryGameBtn"
-            android:layout_width="250dp"
-            android:layout_height="32dp"
-            android:layout_weight="1"
-            android:text="Word Memory Game" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/wordMemoryGameBtn"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:text="Word Memory Game"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sequenceMemoryGameBtn" />
 
     <View
         android:id="@+id/view4"
