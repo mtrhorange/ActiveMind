@@ -62,6 +62,10 @@ public class FirebaseHelper {
                         Map<String, Object> addInfo = new HashMap<>();
                         addInfo.put("HighScore", score);
                         addInfo.put("GamesPlayed", 1);
+                        addInfo.put("Year", sgDateTime.getYear());
+                        addInfo.put("Month", sgDateTime.getMonthValue());
+                        addInfo.put("Day", sgDateTime.getDayOfMonth());
+
                         docRef.set(addInfo);
                     }
                 }
