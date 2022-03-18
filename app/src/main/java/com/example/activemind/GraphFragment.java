@@ -70,11 +70,175 @@ public class GraphFragment extends Fragment {
 
     ArrayList<BarChartData> barChartData = new ArrayList<>();
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        binding = FragmentGraphBinding.inflate(inflater, container, false);
+        numberMemoryGameBtn = binding.numberMemoryGameBtn;
+        sequenceMemoryGameBtn = binding.sequenceMemoryGameBtn;
+        wordMemoryGameBtn = binding.wordMemoryGameBtn;
+        barChart = binding.barChart.findViewById(R.id.barChart);
+        // Inflate the layout for this fragment
+
+        barEntryArrayList = new ArrayList<>();
+        labelNames = new ArrayList<>();
+
+        getGameScores("NumberMemory");
+
+        numberMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getGameScores("NumberMemory");
+            }
+        });
+
+        sequenceMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getGameScores("SequenceMemory");
+            }
+        });
+
+        wordMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getGameScores("WordMemory");
+            }
+        });
+
+
+//        numberMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                barChartData.clear();
+//                barEntryArrayList.clear();
+//                labelNames.clear();
+//                getNumberScore();
+//
+//                for (int i = 0; i < 7; i++){
+//                    String date = barChartData.get(i).getDate();
+//                    int score = barChartData.get(i).getScore();
+//                    barEntryArrayList.add(new BarEntry(i,score));
+//                    labelNames.add(date);
+//                }
+//
+//                BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Game Scores");
+//                barDataSet.setColors(ColorTemplate.rgb("673AB7"));
+//                barDataSet.setValueTextSize(12);
+//                Description description = new Description();
+//                description.setText("");
+//                barChart.setDescription(description);
+//                BarData barData = new BarData(barDataSet);
+//                barChart.setData(barData);
+//                barChart.getAxisLeft().setStartAtZero(true);
+//                barChart.getAxisLeft().setAxisMaximum(100);
+//
+//                XAxis xAxis = barChart.getXAxis();
+//                xAxis.setValueFormatter(new IndexAxisValueFormatter(labelNames));
+//                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+//                xAxis.setDrawGridLines(false);
+//                xAxis.setDrawAxisLine(false);
+//                xAxis.setGranularity(1f);
+//                xAxis.setLabelCount(labelNames.size());
+//                xAxis.setTextSize(12);
+//
+//                barChart.animateY(1000);
+//                barChart.invalidate();
+//            }
+//        });
+//
+//        sequenceMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                barChartData.clear();
+//                barEntryArrayList.clear();
+//                labelNames.clear();
+//                getSequenceScore();
+//
+//                for (int i = 0; i < 7; i++){
+//                    String date = barChartData.get(i).getDate();
+//                    int score = barChartData.get(i).getScore();
+//                    barEntryArrayList.add(new BarEntry(i,score));
+//                    labelNames.add(date);
+//                }
+//
+//                BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Game Scores");
+//                barDataSet.setColors(ColorTemplate.rgb("673AB7"));
+//                barDataSet.setValueTextSize(12);
+//                Description description = new Description();
+//                description.setText("");
+//                barChart.setDescription(description);
+//                BarData barData = new BarData(barDataSet);
+//                barChart.setData(barData);
+//                barChart.getAxisLeft().setStartAtZero(true);
+//                barChart.getAxisLeft().setAxisMaximum(100);
+//
+//                XAxis xAxis = barChart.getXAxis();
+//                xAxis.setValueFormatter(new IndexAxisValueFormatter(labelNames));
+//                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+//                xAxis.setDrawGridLines(false);
+//                xAxis.setDrawAxisLine(false);
+//                xAxis.setGranularity(1f);
+//                xAxis.setLabelCount(labelNames.size());
+//                xAxis.setTextSize(12);
+//
+//                barChart.animateY(1000);
+//                barChart.invalidate();
+//            }
+//        });
+//
+//        wordMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                barChartData.clear();
+//                barEntryArrayList.clear();
+//                labelNames.clear();
+//                getWordScore();
+//
+//                for (int i = 0; i < 7; i++){
+//                    String date = barChartData.get(i).getDate();
+//                    int score = barChartData.get(i).getScore();
+//                    barEntryArrayList.add(new BarEntry(i,score));
+//                    labelNames.add(date);
+//                }
+//
+//                BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Game Scores");
+//                barDataSet.setColors(ColorTemplate.rgb("673AB7"));
+//                barDataSet.setValueTextSize(12);
+//                Description description = new Description();
+//                description.setText("");
+//                barChart.setDescription(description);
+//                BarData barData = new BarData(barDataSet);
+//                barChart.setData(barData);
+//                barChart.getAxisLeft().setStartAtZero(true);
+//                barChart.getAxisLeft().setAxisMaximum(100);
+//
+//                XAxis xAxis = barChart.getXAxis();
+//                xAxis.setValueFormatter(new IndexAxisValueFormatter(labelNames));
+//                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+//                xAxis.setDrawGridLines(false);
+//                xAxis.setDrawAxisLine(false);
+//                xAxis.setGranularity(1f);
+//                xAxis.setLabelCount(labelNames.size());
+//                xAxis.setTextSize(12);
+//
+//                barChart.animateY(1000);
+//                barChart.invalidate();
+//            }
+//        });
+
+
+
+
+        return binding.getRoot();
+    }
+
     /**
      * Gets and sets the highest score for the last 7 days for game
      * @param gameName name of the game to pull data for
      */
-    private void getNumberMemoryScore(String gameName) {
+    private void getGameScores(String gameName) {
         //check if user is logged in
         FirebaseUser fbU = FirebaseAuth.getInstance().getCurrentUser();
         if (fbU != null) {
@@ -87,11 +251,11 @@ public class GraphFragment extends Fragment {
 
             barChartData.clear();
 
-            for (short days = 0; days < 7; days ++) {
+            for (short days = 0; days < 7; days++) {
                 final ZonedDateTime offsetSgDateTime = sgDateTime.minusDays(days);
                 final short id = days;
 
-                Query queryColRef = colRef.whereEqualTo("Year", offsetSgDateTime.getYear());;
+                Query queryColRef = colRef.whereEqualTo("Year", offsetSgDateTime.getYear());
                 queryColRef = queryColRef.whereEqualTo("Month", offsetSgDateTime.getMonthValue());
                 queryColRef = queryColRef.whereEqualTo("Day", offsetSgDateTime.getDayOfMonth());
 
@@ -116,46 +280,6 @@ public class GraphFragment extends Fragment {
                 });
             }
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        binding = FragmentGraphBinding.inflate(inflater, container, false);
-        numberMemoryGameBtn = binding.numberMemoryGameBtn;
-        sequenceMemoryGameBtn = binding.sequenceMemoryGameBtn;
-        wordMemoryGameBtn = binding.wordMemoryGameBtn;
-        barChart = binding.barChart.findViewById(R.id.barChart);
-        // Inflate the layout for this fragment
-
-        barEntryArrayList = new ArrayList<>();
-        labelNames = new ArrayList<>();
-
-        getNumberMemoryScore("NumberMemory");
-
-        numberMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        sequenceMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        wordMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        return binding.getRoot();
     }
 
     /**
@@ -183,6 +307,7 @@ public class GraphFragment extends Fragment {
         BarData barData = new BarData(barDataSet);
         barChart.setData(barData);
         barChart.getAxisLeft().setStartAtZero(true);
+//        barChart.getAxisLeft().setAxisMaximum(100);
 
         XAxis xAxis = barChart.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(labelNames));
