@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
@@ -64,11 +65,13 @@ public class GraphFragment extends Fragment {
     private Button sequenceMemoryGameBtn;
     private Button wordMemoryGameBtn;
 
-    BarChart barChart;
-    ArrayList<BarEntry> barEntryArrayList = new ArrayList<>();
-    ArrayList<String> labelNames;
+    private FirebaseUser fbU;
 
-    ArrayList<BarChartData> barChartData = new ArrayList<>();
+    private BarChart barChart;
+    private ArrayList<BarEntry> barEntryArrayList = new ArrayList<>();
+    private ArrayList<String> labelNames;
+
+    private ArrayList<BarChartData> barChartData = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,155 +84,39 @@ public class GraphFragment extends Fragment {
         barChart = binding.barChart.findViewById(R.id.barChart);
         // Inflate the layout for this fragment
 
-        barEntryArrayList = new ArrayList<>();
-        labelNames = new ArrayList<>();
+        //check if user is logged in
+        fbU = FirebaseAuth.getInstance().getCurrentUser();
+        if (fbU != null) {
+            barEntryArrayList = new ArrayList<>();
+            labelNames = new ArrayList<>();
 
-        getGameScores("NumberMemory");
+            getGameScores("NumberMemory");
 
-        numberMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getGameScores("NumberMemory");
-            }
-        });
+            numberMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    getGameScores("NumberMemory");
+                }
+            });
 
-        sequenceMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getGameScores("SequenceMemory");
-            }
-        });
+            sequenceMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    getGameScores("SequenceMemory");
+                }
+            });
 
-        wordMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getGameScores("WordMemory");
-            }
-        });
-
-
-//        numberMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                barChartData.clear();
-//                barEntryArrayList.clear();
-//                labelNames.clear();
-//                getNumberScore();
-//
-//                for (int i = 0; i < 7; i++){
-//                    String date = barChartData.get(i).getDate();
-//                    int score = barChartData.get(i).getScore();
-//                    barEntryArrayList.add(new BarEntry(i,score));
-//                    labelNames.add(date);
-//                }
-//
-//                BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Game Scores");
-//                barDataSet.setColors(ColorTemplate.rgb("673AB7"));
-//                barDataSet.setValueTextSize(12);
-//                Description description = new Description();
-//                description.setText("");
-//                barChart.setDescription(description);
-//                BarData barData = new BarData(barDataSet);
-//                barChart.setData(barData);
-//                barChart.getAxisLeft().setStartAtZero(true);
-//                barChart.getAxisLeft().setAxisMaximum(100);
-//
-//                XAxis xAxis = barChart.getXAxis();
-//                xAxis.setValueFormatter(new IndexAxisValueFormatter(labelNames));
-//                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-//                xAxis.setDrawGridLines(false);
-//                xAxis.setDrawAxisLine(false);
-//                xAxis.setGranularity(1f);
-//                xAxis.setLabelCount(labelNames.size());
-//                xAxis.setTextSize(12);
-//
-//                barChart.animateY(1000);
-//                barChart.invalidate();
-//            }
-//        });
-//
-//        sequenceMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                barChartData.clear();
-//                barEntryArrayList.clear();
-//                labelNames.clear();
-//                getSequenceScore();
-//
-//                for (int i = 0; i < 7; i++){
-//                    String date = barChartData.get(i).getDate();
-//                    int score = barChartData.get(i).getScore();
-//                    barEntryArrayList.add(new BarEntry(i,score));
-//                    labelNames.add(date);
-//                }
-//
-//                BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Game Scores");
-//                barDataSet.setColors(ColorTemplate.rgb("673AB7"));
-//                barDataSet.setValueTextSize(12);
-//                Description description = new Description();
-//                description.setText("");
-//                barChart.setDescription(description);
-//                BarData barData = new BarData(barDataSet);
-//                barChart.setData(barData);
-//                barChart.getAxisLeft().setStartAtZero(true);
-//                barChart.getAxisLeft().setAxisMaximum(100);
-//
-//                XAxis xAxis = barChart.getXAxis();
-//                xAxis.setValueFormatter(new IndexAxisValueFormatter(labelNames));
-//                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-//                xAxis.setDrawGridLines(false);
-//                xAxis.setDrawAxisLine(false);
-//                xAxis.setGranularity(1f);
-//                xAxis.setLabelCount(labelNames.size());
-//                xAxis.setTextSize(12);
-//
-//                barChart.animateY(1000);
-//                barChart.invalidate();
-//            }
-//        });
-//
-//        wordMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                barChartData.clear();
-//                barEntryArrayList.clear();
-//                labelNames.clear();
-//                getWordScore();
-//
-//                for (int i = 0; i < 7; i++){
-//                    String date = barChartData.get(i).getDate();
-//                    int score = barChartData.get(i).getScore();
-//                    barEntryArrayList.add(new BarEntry(i,score));
-//                    labelNames.add(date);
-//                }
-//
-//                BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Game Scores");
-//                barDataSet.setColors(ColorTemplate.rgb("673AB7"));
-//                barDataSet.setValueTextSize(12);
-//                Description description = new Description();
-//                description.setText("");
-//                barChart.setDescription(description);
-//                BarData barData = new BarData(barDataSet);
-//                barChart.setData(barData);
-//                barChart.getAxisLeft().setStartAtZero(true);
-//                barChart.getAxisLeft().setAxisMaximum(100);
-//
-//                XAxis xAxis = barChart.getXAxis();
-//                xAxis.setValueFormatter(new IndexAxisValueFormatter(labelNames));
-//                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-//                xAxis.setDrawGridLines(false);
-//                xAxis.setDrawAxisLine(false);
-//                xAxis.setGranularity(1f);
-//                xAxis.setLabelCount(labelNames.size());
-//                xAxis.setTextSize(12);
-//
-//                barChart.animateY(1000);
-//                barChart.invalidate();
-//            }
-//        });
-
-
-
+            wordMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    getGameScores("WordMemory");
+                }
+            });
+        }
+        //prompt user to log in to be able to view
+        else {
+            Toast.makeText(getContext(), "Log in to view scores", Toast.LENGTH_SHORT).show();
+        }
 
         return binding.getRoot();
     }
@@ -239,10 +126,7 @@ public class GraphFragment extends Fragment {
      * @param gameName name of the game to pull data for
      */
     private void getGameScores(String gameName) {
-        //check if user is logged in
-        FirebaseUser fbU = FirebaseAuth.getInstance().getCurrentUser();
         if (fbU != null) {
-            System.out.println("Game name: " + gameName);
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             CollectionReference colRef = db.collection("Users").document(fbU.getUid().toString()).collection(gameName);
 

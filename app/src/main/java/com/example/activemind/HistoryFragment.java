@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
@@ -90,10 +91,10 @@ public class HistoryFragment extends Fragment {
                 }
             });
         }
-//        Calendar calendar1 = Calendar.getInstance();
-//        calendar1.set(2022, 2, 10);
-//        events.add(new EventDay(calendar1, R.drawable.uncheck));
-
+        //prompt user to log in to be able to view
+        else {
+            Toast.makeText(getContext(), "Log in to view history", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
