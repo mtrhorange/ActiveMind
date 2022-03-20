@@ -518,9 +518,6 @@ public class ProfileFragment extends Fragment {
                         userInfo.put("First Name", fS);
                         userInfo.put("Last Name", lS);
                         userInfo.put("Email", eS);
-                        userInfo.put("NumberHighScore", 0);
-                        userInfo.put("SequenceHighScore", 0);
-                        userInfo.put("WordHighScore", 0);
                         docRef.set(userInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {

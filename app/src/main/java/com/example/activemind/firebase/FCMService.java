@@ -37,13 +37,12 @@ public class FCMService extends FirebaseMessagingService {
                 .setSmallIcon(R.drawable.baseline_calendar_today_24)
                 .setAutoCancel(true)
                 .setVibrate(new long[]{1000, 1000})
-                .setOnlyAlertOnce(true)
                 .setContentIntent(pendingIntent);
 
         RemoteViews remoteViews = new RemoteViews(getApplicationContext().getPackageName(), R.layout.push_notification);
         remoteViews.setTextViewText(R.id.title, title);
         remoteViews.setTextViewText(R.id.message, message);
-        remoteViews.setImageViewResource(R.id.icon, R.drawable.baseline_calendar_today_24);
+        remoteViews.setImageViewResource(R.id.icon, R.drawable.brain);
 
         builder = builder.setContent(remoteViews);
 

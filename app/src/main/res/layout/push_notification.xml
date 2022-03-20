@@ -13,7 +13,7 @@
             android:id="@+id/notification_icon"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:src="@drawable/baseline_calendar_today_24"
+            android:src="@drawable/brain"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp" />
 
