@@ -7,197 +7,278 @@
     android:background="@drawable/background"
     tools:context=".games.SequenceMemoryActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/StartPageGroup">
 
         <TextView
-            android:id="@+id/levelBox"
+            android:id="@+id/startTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Sequence \nMemory Game"
+            android:textColor="@color/color_white"
+            android:textSize="34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.438" />
+
+        <Button
+            android:id="@+id/startBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startTitleText"
+            app:layout_constraintVertical_bias="0.177" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/GameGroup">
+
+        <TextView
+            android:id="@+id/levelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Level: 1"
             android:textColor="@color/color_white"
-            android:textSize="34dp" />
+            android:textSize="34dp"
+            app:layout_constraintBottom_toBottomOf="@+id/livesText"
+            app:layout_constraintEnd_toStartOf="@+id/livesText"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/livesBox"
+            android:id="@+id/livesText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="6dp"
             android:layout_weight="1"
-            android:text="Live: 3"
+            android:text="Lives: 3"
             android:textAlignment="textEnd"
             android:textColor="@color/color_white"
-            android:textSize="34dp" />
-    </LinearLayout>
+            android:textSize="34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.781"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textBox"
+            app:layout_constraintVertical_bias="0.048" />
 
-    <TextView
-        android:id="@+id/textBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="Remeber the Sequence"
-        android:textColor="@color/color_white"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="366dp"
-        android:layout_height="366dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.688"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBox">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/gameBtn1"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_weight="1"
-                android:text="Press" />
-
-            <Button
-                android:id="@+id/gameBtn2"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_weight="1"
-                android:text="Press" />
-
-            <Button
-                android:id="@+id/gameBtn3"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_weight="1"
-                android:text="Press" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/textBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:text="Remember the Sequence"
+            android:textColor="@color/color_white"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.131" />
 
-            <Button
-                android:id="@+id/gameBtn4"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_weight="1"
-                android:text="Press" />
+        <Button
+            android:id="@+id/num1Btn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:foreground="@drawable/bg_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.125" />
 
-            <Button
-                android:id="@+id/gameBtn5"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_weight="1"
-                android:text="Press" />
+        <Button
+            android:id="@+id/num2Btn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:foreground="@drawable/bg_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.125" />
 
-            <Button
-                android:id="@+id/gameBtn6"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_weight="1"
-                android:text="Press" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/num3Btn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:foreground="@drawable/bg_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.125" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/num6Btn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:foreground="@drawable/bg_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.425" />
+
+        <Button
+            android:id="@+id/num4Btn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:foreground="@drawable/bg_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.149"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.425" />
+
+        <Button
+            android:id="@+id/num5Btn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:foreground="@drawable/bg_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.425" />
+
+        <Button
+            android:id="@+id/num7Btn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:foreground="@drawable/bg_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.149"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.725" />
+
+        <Button
+            android:id="@+id/num8Btn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:foreground="@drawable/bg_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.725" />
+
+        <Button
+            android:id="@+id/num9Btn"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:foreground="@drawable/bg_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/livesText"
+            app:layout_constraintVertical_bias="0.725" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ResultGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <TextView
+            android:id="@+id/endTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Sequence \nMemory Game"
+            android:textColor="@color/color_white"
+            android:textSize="34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.348" />
 
-            <Button
-                android:id="@+id/gameBtn7"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_weight="1"
-                android:text="Press" />
+        <TextView
+            android:id="@+id/endLevelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Level: 12"
+            android:textColor="@color/color_white"
+            android:textSize="45dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/gameBtn8"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_weight="1"
-                android:text="Press" />
+        <Button
+            android:id="@+id/retryBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_retry"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endTitleText"
+            app:layout_constraintVertical_bias="0.345" />
 
-            <Button
-                android:id="@+id/gameBtn9"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_weight="1"
-                android:text="Press" />
-        </LinearLayout>
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/retryBtn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Retry"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/backBtn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Back Home"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="X"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/retryBtn" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.042"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

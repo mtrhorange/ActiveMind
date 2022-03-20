@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/drawable/bg_button.xml" value="0.2585" />
+        <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/drawable/button_clicked.xml" value="0.2585" />
+        <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/activity_end_number_game.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/activity_main.xml" value="0.36096014492753625" />
+        <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/activity_number_memory.xml" value="0.4759259259259259" />
+        <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/activity_sequence_memory.xml" value="0.25" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/app_bar_main.xml" value="0.36096014492753625" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/content_main.xml" value="0.29846014492753625" />
+        <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.17831813576494426" />
+        <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/fragment_numbergame.xml" value="0.17831813576494426" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/background.xml" value="0.325" />

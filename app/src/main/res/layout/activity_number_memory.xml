@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         android:id="@+id/StartPageGroup">
         <TextView
             android:id="@+id/text_numbergame"
@@ -112,7 +112,7 @@
         android:id="@+id/QueryGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:layout_editor_absoluteX="-38dp"
         tools:layout_editor_absoluteY="56dp">
 
@@ -448,13 +448,14 @@
 
     <Button
         android:id="@+id/backBtn"
-        android:layout_width="38dp"
-        android:layout_height="44dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:text="X"
+        style="@style/Widget.AppCompat.Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.042"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
