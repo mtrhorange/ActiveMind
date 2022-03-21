@@ -72,8 +72,7 @@ public class SequenceMemoryActivity extends AppCompatActivity {
 
         retryBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startPageGroup.setVisibility(View.VISIBLE);
-                resultGroup.setVisibility(View.GONE);
+                restartGame();
             }
         });
 
@@ -127,6 +126,11 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         String levelStr = "Level: " + level;
         endLevelText.setText(levelStr);
         FirebaseHelper.updateUserGameData("SequenceMemory", level);
+    }
+
+    private void restartGame() {
+        startPageGroup.setVisibility(View.VISIBLE);
+        resultGroup.setVisibility(View.GONE);
     }
 
     private void wrongInput() {

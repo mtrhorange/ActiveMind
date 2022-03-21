@@ -9,6 +9,7 @@
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/activity_main.xml" value="0.36096014492753625" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/activity_number_memory.xml" value="0.4759259259259259" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/activity_sequence_memory.xml" value="0.25" />
+        <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/activity_word_memory.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/app_bar_main.xml" value="0.36096014492753625" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/content_main.xml" value="0.29846014492753625" />
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.17831813576494426" />
@@ -55,7 +56,7 @@
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/design_fragment.xml" value="0.135258358662614" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_desgin.xml" value="0.135258358662614" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
-        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.18" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_history.xml" value="0.33" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
@@ -74,14 +75,12 @@
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/activity_forgot_password.xml" value="0.33152173913043476" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/activity_game.xml" value="0.1578125" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/activity_main.xml" value="0.2545289855072464" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/activity_number_memory.xml" value="0.33152173913043476" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/activity_signin.xml" value="0.33152173913043476" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/activity_signup.xml" value="0.33152173913043476" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/activity_sub_main.xml" value="0.33152173913043476" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.33152173913043476" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_history.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_login.xml" value="0.2545289855072464" />
-        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/nav_header_main.xml" value="0.33152173913043476" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/push_notification.xml" value="0.2545289855072464" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/menu/activity_main_drawer.xml" value="0.3359375" />
