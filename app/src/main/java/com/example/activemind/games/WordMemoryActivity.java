@@ -110,7 +110,7 @@ public class WordMemoryActivity extends AppCompatActivity {
         startPageGroup.setVisibility(View.GONE);
         gameGroup.setVisibility(View.VISIBLE);
 
-        level = 0;
+        level = 1;
         lives = 3;
         seenWordList.clear();
         newWordList = new ArrayList<String>(Arrays.asList(wordArr));
@@ -118,7 +118,6 @@ public class WordMemoryActivity extends AppCompatActivity {
     }
 
     private void newRound() {
-        level += 1;
         String levelStr = "Level: " + level;
         levelText.setText(levelStr);
 
@@ -142,7 +141,8 @@ public class WordMemoryActivity extends AppCompatActivity {
     private void seenWordBtnClick() {
         if (!isSeenWord) {
             minusLife();
-        }
+        } else
+            level += 1;
         if (lives > 0)
             newRound();
         else
@@ -153,7 +153,8 @@ public class WordMemoryActivity extends AppCompatActivity {
     private void newWordBtnClick() {
         if (isSeenWord) {
             minusLife();
-        }
+        } else
+            level += 1;
         if (lives > 0)
             newRound();
         else
