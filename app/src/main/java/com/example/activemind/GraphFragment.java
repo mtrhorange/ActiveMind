@@ -3,12 +3,14 @@ package com.example.activemind;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.activemind.databinding.FragmentGraphBinding;
@@ -53,6 +55,9 @@ public class GraphFragment extends Fragment {
     private Button numberMemoryGameBtn;
     private Button sequenceMemoryGameBtn;
     private Button wordMemoryGameBtn;
+    private Button leftBtn, rightBtn;
+    private TextView gameName;
+    private ConstraintLayout loginLayout, logoutLayout;
 
     private FirebaseUser fbU;
 
@@ -62,11 +67,20 @@ public class GraphFragment extends Fragment {
 
     private ArrayList<BarChartData> barChartData = new ArrayList<>();
 
+    private ArrayList<String> gameList = new ArrayList<String>();
+    private int currentGame = 0;
+    private int totalgame = gameList.size();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         binding = FragmentGraphBinding.inflate(inflater, container, false);
+        loginLayout = binding.LoginLayout;
+        logoutLayout = binding.LogoutLayout;
+        leftBtn = binding.leftBtn;
+        rightBtn = binding.rightBtn;
+        gameName = binding.GameName;
         numberMemoryGameBtn = binding.numberMemoryGameBtn;
         sequenceMemoryGameBtn = binding.sequenceMemoryGameBtn;
         wordMemoryGameBtn = binding.wordMemoryGameBtn;
@@ -75,11 +89,44 @@ public class GraphFragment extends Fragment {
 
         //check if user is logged in
         fbU = FirebaseAuth.getInstance().getCurrentUser();
+
+        gameList.add("NumberMemory");
+        gameList.add("SequenceMemory");
+        gameList.add("WordMemory");
+
         if (fbU != null) {
+            logoutLayout.setVisibility(View.GONE);
+            loginLayout.setVisibility(View.VISIBLE);
             barEntryArrayList = new ArrayList<>();
             labelNames = new ArrayList<>();
+            gameName.setText(gameList.get(currentGame));
+            getGameScores(gameList.get(currentGame));
 
-            getGameScores("NumberMemory");
+            leftBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(currentGame == 0){
+                        currentGame = totalgame;
+                    }else{
+                        currentGame --;
+                    }
+                    gameName.setText(gameList.get(currentGame));
+                    getGameScores(gameList.get(currentGame));
+                }
+            });
+
+            rightBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(currentGame == totalgame-1){
+                        currentGame = 0;
+                    }else{
+                        currentGame ++;
+                    }
+                    gameName.setText(gameList.get(currentGame));
+                    getGameScores(gameList.get(currentGame));
+                }
+            });
 
             numberMemoryGameBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -104,7 +151,9 @@ public class GraphFragment extends Fragment {
         }
         //prompt user to log in to be able to view
         else {
-            Toast.makeText(getContext(), "Log in to view scores", Toast.LENGTH_SHORT).show();
+            logoutLayout.setVisibility(View.VISIBLE);
+            loginLayout.setVisibility(View.GONE);
+//            Toast.makeText(getContext(), "Log in to view scores", Toast.LENGTH_SHORT).show();
         }
 
         return binding.getRoot();

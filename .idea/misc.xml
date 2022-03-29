@@ -25,8 +25,10 @@
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2825" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/ic_menu_login.xml" value="0.335" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/ic_menu_numbergame.xml" value="0.1455" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/loginbox.xml" value="0.2235" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/question_background.xml" value="0.2595" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/rounded_box.xml" value="0.2825" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/side_nav_bar.xml" value="0.2445" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/submit_btn.xml" value="0.335" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/drawable/textbox.xml" value="0.335" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/activity_change_password.xml" value="0.13269927536231885" />
@@ -56,8 +58,8 @@
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/design_fragment.xml" value="0.135258358662614" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_desgin.xml" value="0.135258358662614" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
-        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.18" />
-        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_history.xml" value="0.33" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.25" />
+        <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_history.xml" value="0.25" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/huang/Desktop/github/ActiveMind/app/src/main/res/layout/fragment_new_home.xml" value="0.25" />

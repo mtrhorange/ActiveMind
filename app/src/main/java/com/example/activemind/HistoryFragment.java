@@ -3,6 +3,7 @@ package com.example.activemind;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -42,6 +43,7 @@ public class HistoryFragment extends Fragment {
     }
 
     FragmentHistoryBinding binding;
+    private ConstraintLayout loginLayout, logoutLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +51,8 @@ public class HistoryFragment extends Fragment {
 
         binding = FragmentHistoryBinding.inflate(inflater, container, false);
         // Inflate the layout for this fragment
+        loginLayout = binding.LoginLayout;
+        logoutLayout = binding.LogoutLayout;
 
         setupCalendar();
 
@@ -62,6 +66,8 @@ public class HistoryFragment extends Fragment {
         FirebaseUser fbU = FirebaseAuth.getInstance().getCurrentUser();
         //proceed only if logged into firebase account
         if (fbU != null) {
+            logoutLayout.setVisibility(View.GONE);
+            loginLayout.setVisibility(View.VISIBLE);
             List<EventDay> events = new ArrayList<>();
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -89,7 +95,9 @@ public class HistoryFragment extends Fragment {
         }
         //prompt user to log in to be able to view
         else {
-            Toast.makeText(getContext(), "Log in to view history", Toast.LENGTH_SHORT).show();
+            logoutLayout.setVisibility(View.VISIBLE);
+            loginLayout.setVisibility(View.GONE);
+//            Toast.makeText(getContext(), "Log in to view history", Toast.LENGTH_SHORT).show();
         }
     }
 

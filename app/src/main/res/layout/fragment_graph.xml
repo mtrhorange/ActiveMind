@@ -9,53 +9,161 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barChart"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/LoginLayout"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </com.github.mikephil.charting.charts.BarChart>
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="View your Game Scores"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/numberMemoryGameBtn"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_weight="1"
-        android:text="Number Memory Game"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barChart" />
+        <Button
+            android:id="@+id/leftBtn"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="4dp"
+            android:text="&lt;"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <Button
-        android:id="@+id/sequenceMemoryGameBtn"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_weight="1"
-        android:text="Sequence Memory Game"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberMemoryGameBtn" />
+        <TextView
+            android:id="@+id/GameName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="GameName"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@+id/rightBtn"
+            app:layout_constraintStart_toEndOf="@+id/leftBtn"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <Button
-        android:id="@+id/wordMemoryGameBtn"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_weight="1"
-        android:text="Word Memory Game"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sequenceMemoryGameBtn" />
+        <Button
+            android:id="@+id/rightBtn"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="16dp"
+            android:text="&gt;"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <View
-        android:id="@+id/view4"
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/GameName">
+
+        </com.github.mikephil.charting.charts.BarChart>
+
+        <Button
+            android:id="@+id/numberMemoryGameBtn"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Number Memory Game"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barChart" />
+
+        <Button
+            android:id="@+id/sequenceMemoryGameBtn"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:text="Sequence Memory Game"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numberMemoryGameBtn" />
+
+        <Button
+            android:id="@+id/wordMemoryGameBtn"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:text="Word Memory Game"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sequenceMemoryGameBtn" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/LogoutLayout"
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+        <TextView
+            android:id="@+id/LoginMsg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/submit_btn"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Please Press the profile icon at the bottom right to login to view data"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:rotation="90"
+            android:src="@drawable/hand"
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
