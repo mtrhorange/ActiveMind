@@ -107,7 +107,7 @@ public class GraphFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     if(currentGame == 0){
-                        currentGame = totalgame;
+                        currentGame = totalgame-1;
                     }else{
                         currentGame --;
                     }
