@@ -34,10 +34,10 @@ public class NewHomeFragment extends Fragment {
         binding = FragmentNewHomeBinding.inflate(inflater, container, false);
 
         ArrayList<CategoryModel> categories = new ArrayList<>();
-        categories.add(new CategoryModel("Number Memory Game","Number Memory Game",R.drawable.brain_training));
-        categories.add(new CategoryModel("Sequence Memory Game","Sequence Memory Game",R.drawable.brain_sequence));
-        categories.add(new CategoryModel("Word Memory Game","Word Memory Game",R.drawable.brain_word));
-        categories.add(new CategoryModel("More Game","More \n Games Coming",R.drawable.brain_more));
+        categories.add(new CategoryModel("Number Memory Game","Number\nMemory\nGame",R.drawable.brain_training));
+        categories.add(new CategoryModel("Sequence Memory Game","Sequence\nMemory\nGame",R.drawable.brain_sequence));
+        categories.add(new CategoryModel("Word Memory Game","Word\nMemory\nGame",R.drawable.brain_word));
+        categories.add(new CategoryModel("More Game","More\nGames\nComing",R.drawable.brain_more));
 
         CategoryAdapter adapter = new CategoryAdapter(getContext(), categories);
         binding.categoryList.setLayoutManager(new GridLayoutManager(getContext(), 2));
