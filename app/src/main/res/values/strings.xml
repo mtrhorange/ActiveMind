@@ -25,6 +25,9 @@
     <string name="text_help">Help</string>
     <string name="text_gameOver">GAME OVER</string>
 
+    <string name="help_sequence">Memorize the sequence of buttons that light up, then press them in order.\n\nEvery time you finish the pattern, it gets longer.\n\nEvery mistake you make, you will lose a life.\n\nWhen you run out of lives, the game ends.</string>
+    <string name="help_numberGame">Each round a random number will be shown for 10 seconds.\n\nMemorise the number, then type in the number after it disappears.\n\nThe number will get longer each round.\n\nGame will end when you get the number wrong.</string>
+    <string name="help_wordGame">A random word will be shown.\n\nClick \'seen\' or \'new\' depending on if the word has appeared before or not.\n\nYou will lose a life if you chose wrongly.\n\nLose 3 lives and the game will end.</string>
     <string name="login_title">Login</string>
 
     <!-- TODO: Remove or change this placeholder text -->

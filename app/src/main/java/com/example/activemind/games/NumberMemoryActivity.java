@@ -22,9 +22,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
 
     private Button backBtn;
     ActivityNumberMemoryBinding binding;
-    private ConstraintLayout startPageGroup, showNumberGroup, queryGroup, resultGroup;
+    private ConstraintLayout startPageGroup, showNumberGroup, queryGroup, resultGroup, helpGroup;
     private TextView numberText, numberText2, answerText, answerInputText, levelText, gameOverText;
-    private Button submitBtn, nextBtn, startBtn, num1Btn;
+    private Button submitBtn, nextBtn, startBtn, exitBtn, helpBtn;
     private List<Button> numberBtns;
     private Countdown timerCount;
     private ProgressBar progressBar;
@@ -48,6 +48,7 @@ public class NumberMemoryActivity extends AppCompatActivity {
         showNumberGroup = binding.ShowNumberGroup;
         queryGroup = binding.QueryGroup;
         resultGroup = binding.ResultGroup;
+        helpGroup = binding.HelpGroup;
 
         backBtn = binding.backBtn;
         startBtn = binding.startBtn;
@@ -58,12 +59,36 @@ public class NumberMemoryActivity extends AppCompatActivity {
         submitBtn = binding.submitBtn;
         levelText = binding.levelText;
         nextBtn = binding.nextBtn;
+        exitBtn = binding.exitBtn;
+        helpBtn = binding.helpBtn;
         answerInputText = binding.answerInputText;
         gameOverText = binding.gameOverText;
+
+        startPageGroup.setVisibility(View.VISIBLE);
+        showNumberGroup.setVisibility(View.GONE);
+        queryGroup.setVisibility(View.GONE);
+        resultGroup.setVisibility(View.GONE);
+        helpGroup.setVisibility(View.GONE);
 
         setAnswerButtons();
 
         backBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startPageGroup.setVisibility(View.VISIBLE);
+                helpGroup.setVisibility(View.GONE);
+                exitBtn.setVisibility(View.VISIBLE);
+            }
+        });
+
+        helpBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startPageGroup.setVisibility(View.GONE);
+                helpGroup.setVisibility(View.VISIBLE);
+                exitBtn.setVisibility(View.GONE);
+            }
+        });
+
+        exitBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 finish();
             }

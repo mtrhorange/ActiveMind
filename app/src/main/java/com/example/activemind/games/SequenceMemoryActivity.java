@@ -19,8 +19,8 @@ import java.util.Random;
 
 public class SequenceMemoryActivity extends AppCompatActivity {
 
-    private ConstraintLayout startPageGroup, gameGroup, resultGroup;
-    private Button backBtn, startBtn, retryBtn, helpBtn;
+    private ConstraintLayout startPageGroup, gameGroup, resultGroup, helpGroup;
+    private Button backBtn, startBtn, retryBtn, helpBtn, exitBtn;
     private TextView levelText, livesText, endLevelText;
     private View wrongOverlay, correctOverlay;
     private List<Button> gameBtnList = new ArrayList<>();
@@ -48,7 +48,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         startPageGroup = binding.StartPageGroup;
         gameGroup = binding.GameGroup;
         resultGroup = binding.ResultGroup;
+        helpGroup = binding.HelpGroup;
         backBtn = binding.backBtn;
+        exitBtn = binding.exitBtn;
         startBtn = binding.startBtn;
         retryBtn = binding.retryBtn;
         helpBtn = binding.helpBtn;
@@ -61,9 +63,26 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         startPageGroup.setVisibility(View.VISIBLE);
         gameGroup.setVisibility(View.GONE);
         resultGroup.setVisibility(View.GONE);
+        helpGroup.setVisibility(View.GONE);
         setGameButtons();
 
         backBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startPageGroup.setVisibility(View.VISIBLE);
+                helpGroup.setVisibility(View.GONE);
+                exitBtn.setVisibility(View.VISIBLE);
+            }
+        });
+
+        helpBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startPageGroup.setVisibility(View.GONE);
+                helpGroup.setVisibility(View.VISIBLE);
+                exitBtn.setVisibility(View.GONE);
+            }
+        });
+
+        exitBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 finish();
             }
