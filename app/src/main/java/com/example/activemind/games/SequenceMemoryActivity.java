@@ -20,12 +20,14 @@ import java.util.Random;
 public class SequenceMemoryActivity extends AppCompatActivity {
 
     private ConstraintLayout startPageGroup, gameGroup, resultGroup;
-    private Button backBtn, startBtn, retryBtn;
+    private Button backBtn, startBtn, retryBtn, helpBtn;
     private TextView levelText, livesText, endLevelText;
+    private View wrongOverlay, correctOverlay;
     private List<Button> gameBtnList = new ArrayList<>();
     ActivitySequenceMemoryBinding binding;
     private ButtonCountdown buttonCount;
     private StartCountdown startCountdown;
+    private OverlayCountdown overlayCountdown;
     private List<Integer> buttonOrder = new ArrayList<>();
     private List<Integer> clickedOrder = new ArrayList<>();
     private int level = 0;
@@ -46,12 +48,15 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         startPageGroup = binding.StartPageGroup;
         gameGroup = binding.GameGroup;
         resultGroup = binding.ResultGroup;
-        backBtn = findViewById(R.id.backBtn);
+        backBtn = binding.backBtn;
         startBtn = binding.startBtn;
-        retryBtn = findViewById(R.id.retryBtn);
+        retryBtn = binding.retryBtn;
+        helpBtn = binding.helpBtn;
         levelText = binding.levelText;
         livesText = binding.livesText;
         endLevelText = binding.endLevelText;
+        wrongOverlay = binding.wrongOverlay;
+        correctOverlay = binding.correctOverlay;
 
         startPageGroup.setVisibility(View.VISIBLE);
         gameGroup.setVisibility(View.GONE);
@@ -137,6 +142,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         lives -= 1;
         String livesStr = "Lives: " + lives;
         livesText.setText(livesStr);
+        //wrongOverlayCountdown.activate();
+        overlayCountdown = new OverlayCountdown(100L, 100, wrongOverlay);
+        overlayCountdown.activate();
         if (lives >= 1) {
             clickedOrder.clear();
             startCountdown.start();
@@ -151,6 +159,8 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         if (clickedOrder.get(numInputs - 1).equals(buttonOrder.get(numInputs - 1))) {
             if (clickedOrder.equals(buttonOrder)) {
                 isClickable = false;
+                overlayCountdown = new OverlayCountdown(150L, 150, correctOverlay);
+                overlayCountdown.activate();
                 newRound();
             }
         } else {
@@ -158,16 +168,15 @@ public class SequenceMemoryActivity extends AppCompatActivity {
             wrongInput();
         }
 
-        if (clickedOrder.size() == buttonOrder.size()) {
+        /*if (clickedOrder.size() == buttonOrder.size()) {
             isClickable = false;
             if (clickedOrder.equals(buttonOrder)) {
                 newRound();
             }
-        }
+        }*/
     }
 
     public class StartCountdown extends CountDownTimer {
-        Button gameBtn;
         public StartCountdown(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
         }
@@ -176,6 +185,31 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         public void onFinish() {
             //some script here
             lightNextButton();
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+
+        }
+    }
+
+    public class OverlayCountdown extends CountDownTimer {
+        View overlay;
+        public OverlayCountdown(long millisInFuture, long countDownInterval, View ov) {
+            super(millisInFuture, countDownInterval);
+            overlay = ov;
+        }
+
+        public void activate() {
+            //some script here
+            overlay.setVisibility(View.VISIBLE);
+            this.start();
+        }
+
+        @Override
+        public void onFinish() {
+            //some script here
+            overlay.setVisibility(View.GONE);
         }
 
         @Override
@@ -195,13 +229,13 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         @Override
         public void onFinish() {
             //some script here
-            gameBtn.setForeground(getDrawable(R.drawable.bg_button));
             lightNextButton();
         }
 
         @Override
         public void onTick(long millisUntilFinished) {
-
+            if (millisUntilFinished <= 200)
+                gameBtn.setForeground(getDrawable(R.drawable.bg_button));
         }
     }
 

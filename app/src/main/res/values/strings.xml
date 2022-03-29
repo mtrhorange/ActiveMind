@@ -22,7 +22,8 @@
     <string name="text_next">Next</string>
     <string name="text_retry">Retry</string>
     <string name="text_start">Start</string>
-
+    <string name="text_help">Help</string>
+    <string name="text_gameOver">GAME OVER</string>
 
     <string name="login_title">Login</string>
 

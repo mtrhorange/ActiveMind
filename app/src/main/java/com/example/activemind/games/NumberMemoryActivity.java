@@ -3,12 +3,10 @@ package com.example.activemind.games;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,7 +16,6 @@ import java.util.Random;
 
 import com.example.activemind.R;
 import com.example.activemind.databinding.ActivityNumberMemoryBinding;
-import com.example.activemind.databinding.FragmentNumbergameBinding;
 import com.example.activemind.firebase.FirebaseHelper;
 
 public class NumberMemoryActivity extends AppCompatActivity {
@@ -26,7 +23,7 @@ public class NumberMemoryActivity extends AppCompatActivity {
     private Button backBtn;
     ActivityNumberMemoryBinding binding;
     private ConstraintLayout startPageGroup, showNumberGroup, queryGroup, resultGroup;
-    private TextView numberText, numberText2, answerText, answerInputText, levelText;
+    private TextView numberText, numberText2, answerText, answerInputText, levelText, gameOverText;
     private Button submitBtn, nextBtn, startBtn, num1Btn;
     private List<Button> numberBtns;
     private Countdown timerCount;
@@ -62,6 +59,7 @@ public class NumberMemoryActivity extends AppCompatActivity {
         levelText = binding.levelText;
         nextBtn = binding.nextBtn;
         answerInputText = binding.answerInputText;
+        gameOverText = binding.gameOverText;
 
         setAnswerButtons();
 
@@ -113,6 +111,7 @@ public class NumberMemoryActivity extends AppCompatActivity {
     public void newGame() {
         level = 0;
         isGameEnded = false;
+        gameOverText.setVisibility(View.INVISIBLE);
         displayStartPage();
     }
 
@@ -167,13 +166,14 @@ public class NumberMemoryActivity extends AppCompatActivity {
         if (playerAnswer.equals(answerString))
             nextBtn.setText(R.string.text_next);
         else {
-            endRound();
+            endGame();
         }
         displayResultPage();
     }
 
-    public void endRound() {
+    public void endGame() {
         nextBtn.setText(R.string.text_retry);
+        gameOverText.setVisibility(View.VISIBLE);
         isGameEnded = true;
         FirebaseHelper.updateUserGameData("NumberMemory", level);
     }
