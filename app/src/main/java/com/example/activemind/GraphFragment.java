@@ -69,7 +69,7 @@ public class GraphFragment extends Fragment {
 
     private ArrayList<String> gameList = new ArrayList<String>();
     private int currentGame = 0;
-    private int totalgame = gameList.size();
+    private int totalgame = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,6 +93,7 @@ public class GraphFragment extends Fragment {
         gameList.add("NumberMemory");
         gameList.add("SequenceMemory");
         gameList.add("WordMemory");
+        totalgame = gameList.size();
 
         if (fbU != null) {
             logoutLayout.setVisibility(View.GONE);
