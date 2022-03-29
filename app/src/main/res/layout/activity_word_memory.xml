@@ -7,6 +7,22 @@
     android:background="@drawable/background"
     tools:context=".games.WordMemoryActivity">
 
+  <View
+      android:id="@+id/wrongOverlay"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone"
+      android:background="#4DF30303"
+      />
+
+  <View
+      android:id="@+id/correctOverlay"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone"
+      android:background="#4DBEFA98"
+      />
+
   <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -24,10 +40,10 @@
         android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
+        app:layout_constraintVertical_bias="0.41" />
 
     <Button
         android:id="@+id/startBtn"
@@ -36,10 +52,22 @@
         android:text="@string/text_start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startTitleText"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.12" />
+
+    <Button
+        android:id="@+id/helpBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_help"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startBtn"
+        app:layout_constraintVertical_bias="0.15" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -47,7 +75,7 @@
       android:id="@+id/GameGroup"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:visibility="visible"
+      android:visibility="gone"
       tools:layout_editor_absoluteX="25dp"
       tools:layout_editor_absoluteY="0dp">
 
@@ -166,13 +194,27 @@
         android:gravity="center"
         android:text="Word \nMemory Game"
         android:textColor="@color/color_white"
-        android:textSize="34dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/endLevelText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348" />
+        app:layout_constraintVertical_bias="0.89" />
+
+    <TextView
+        android:id="@+id/gameOverText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/text_gameOver"
+        android:textColor="@color/color_white"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/endTitleText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75" />
 
     <TextView
         android:id="@+id/endLevelText"
@@ -182,11 +224,12 @@
         android:gravity="center"
         android:text="Level: 12"
         android:textColor="@color/color_white"
-        android:textSize="45dp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52" />
 
     <Button
         android:id="@+id/retryBtn"
@@ -195,15 +238,52 @@
         android:text="@string/text_retry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/endTitleText"
-        app:layout_constraintVertical_bias="0.345" />
+        app:layout_constraintTop_toBottomOf="@+id/endLevelText"
+        app:layout_constraintVertical_bias="0.12" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/HelpGroup"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="visible">
+
+    <Button
+        android:id="@+id/backBtn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="X"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintHorizontal_bias="0.042"/>
+
+    <TextView
+        android:id="@+id/helpText"
+        android:layout_width="319dp"
+        android:layout_height="355dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/help_wordGame"
+        android:textColor="@color/color_white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.422" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+
   <Button
-      android:id="@+id/backBtn"
+      android:id="@+id/exitBtn"
       style="@style/Widget.AppCompat.Button"
       android:layout_width="50dp"
       android:layout_height="50dp"

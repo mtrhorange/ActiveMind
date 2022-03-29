@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,9 +23,11 @@ import java.util.Random;
 
 public class WordMemoryActivity extends AppCompatActivity {
 
-    private ConstraintLayout startPageGroup, gameGroup, resultGroup;
-    private Button backBtn, startBtn, retryBtn, seenWordBtn, newWordBtn;
+    private ConstraintLayout startPageGroup, gameGroup, resultGroup, helpGroup;
+    private Button backBtn, startBtn, retryBtn, seenWordBtn, newWordBtn, exitBtn, helpBtn;
     private TextView endLevelText, levelText, livesText, gameWordText;
+    private View wrongOverlay, correctOverlay;
+    private OverlayCountdown overlayCountdown;
     private String curWord = "";
     private List<String> seenWordList, newWordList;
     private String[] wordArr;
@@ -45,13 +48,16 @@ public class WordMemoryActivity extends AppCompatActivity {
         startPageGroup = binding.StartPageGroup;
         gameGroup = binding.GameGroup;
         resultGroup = binding.ResultGroup;
+        helpGroup = binding.HelpGroup;
 
         startPageGroup.setVisibility(View.VISIBLE);
         gameGroup.setVisibility(View.GONE);
         resultGroup.setVisibility(View.GONE);
+        helpGroup.setVisibility(View.GONE);
 
         startBtn = binding.startBtn;
         retryBtn = binding.retryBtn;
+        helpBtn = binding.helpBtn;
         seenWordBtn = binding.seenWordBtn;
         newWordBtn = binding.newWordBtn;
         endLevelText = binding.endLevelText;
@@ -59,6 +65,9 @@ public class WordMemoryActivity extends AppCompatActivity {
         livesText = binding.livesText;
         gameWordText = binding.gameWordText;
         backBtn = binding.backBtn;
+        exitBtn = binding.exitBtn;
+        wrongOverlay = binding.wrongOverlay;
+        correctOverlay = binding.correctOverlay;
 
         seenWordList = new ArrayList<>();
         newWordList = new ArrayList<>();
@@ -76,6 +85,22 @@ public class WordMemoryActivity extends AppCompatActivity {
         }
 
         backBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startPageGroup.setVisibility(View.VISIBLE);
+                helpGroup.setVisibility(View.GONE);
+                exitBtn.setVisibility(View.VISIBLE);
+            }
+        });
+
+        helpBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startPageGroup.setVisibility(View.GONE);
+                helpGroup.setVisibility(View.VISIBLE);
+                exitBtn.setVisibility(View.GONE);
+            }
+        });
+
+        exitBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 finish();
             }
@@ -140,7 +165,7 @@ public class WordMemoryActivity extends AppCompatActivity {
 
     private void seenWordBtnClick() {
         if (!isSeenWord) {
-            minusLife();
+            wrongInput();
         } else
             level += 1;
         if (lives > 0)
@@ -152,13 +177,44 @@ public class WordMemoryActivity extends AppCompatActivity {
 
     private void newWordBtnClick() {
         if (isSeenWord) {
-            minusLife();
+            wrongInput();
         } else
             level += 1;
         if (lives > 0)
             newRound();
         else
             endGame();
+    }
+
+    private void wrongInput() {
+        minusLife();
+        overlayCountdown = new OverlayCountdown(100L, 100, wrongOverlay);
+        overlayCountdown.activate();
+    }
+
+    public class OverlayCountdown extends CountDownTimer {
+        View overlay;
+        public OverlayCountdown(long millisInFuture, long countDownInterval, View ov) {
+            super(millisInFuture, countDownInterval);
+            overlay = ov;
+        }
+
+        public void activate() {
+            //some script here
+            overlay.setVisibility(View.VISIBLE);
+            this.start();
+        }
+
+        @Override
+        public void onFinish() {
+            //some script here
+            overlay.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+
+        }
     }
 
     private void restartGame() {
