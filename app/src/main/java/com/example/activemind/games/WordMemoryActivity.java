@@ -136,7 +136,7 @@ public class WordMemoryActivity extends AppCompatActivity {
         gameGroup.setVisibility(View.VISIBLE);
 
         level = 1;
-        lives = 3;
+        setLives(3);
         seenWordList.clear();
         newWordList = new ArrayList<String>(Arrays.asList(wordArr));
         newRound();
@@ -231,7 +231,11 @@ public class WordMemoryActivity extends AppCompatActivity {
     }
 
     private void minusLife() {
-        lives -= 1;
+        setLives(lives-1);
+    }
+
+    private void setLives(int i) {
+        lives = i;
         String livesStr = "Lives: " + lives;
         livesText.setText(livesStr);
     }
