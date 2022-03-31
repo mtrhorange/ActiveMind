@@ -29,11 +29,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.4" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/startBtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/text_start"
+            android:background="@color/green_1"
             android:fontFamily="@font/josefinsans"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -43,11 +44,12 @@
             app:layout_constraintTop_toBottomOf="@+id/titleText"
             app:layout_constraintVertical_bias="0.12" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/helpBtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/text_help"
+            android:background="@color/green_1"
             android:fontFamily="@font/josefinsans"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -103,7 +105,7 @@
             android:layout_width="187dp"
             android:layout_height="25dp"
             android:progress="100"
-            android:progressTint="@color/colorPurple"
+            android:progressTint="@color/blue_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -183,13 +185,13 @@
             app:layout_constraintTop_toTopOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.5" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submitBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentLeft="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="@string/text_submit"
             android:fontFamily="@font/josefinsans"
             android:textColor="#FFFFFF"
@@ -199,13 +201,13 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.048" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num1Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="1"
             android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
@@ -217,13 +219,13 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.25" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num2Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="2"
             android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
@@ -235,13 +237,13 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.25" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num3Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="3"
             android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
@@ -253,13 +255,13 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.25" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num4Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="4"
             android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
@@ -271,13 +273,13 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.45" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num5Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="5"
             android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
@@ -289,13 +291,13 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.45" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num6Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="6"
             android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
@@ -307,13 +309,13 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.45" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num7Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="7"
             android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
@@ -325,13 +327,13 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.65" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num8Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="8"
             android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
@@ -343,13 +345,13 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.65" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num9Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@color/green_1"
             android:text="9"
             android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
