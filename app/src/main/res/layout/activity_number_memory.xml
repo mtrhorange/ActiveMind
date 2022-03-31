@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/black_blue_1"
     tools:context=".games.NumberMemoryActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -468,11 +468,12 @@
         android:layout_height="match_parent"
         android:visibility="visible">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/backBtn"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="@color/green_1"
             android:text="X"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -499,10 +500,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/exitBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@color/green_1"
         android:text="X"
         style="@style/Widget.AppCompat.Button"
         app:layout_constraintBottom_toBottomOf="parent"
