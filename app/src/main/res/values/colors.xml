@@ -25,4 +25,16 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+
+    <color name="light_green">#eaf7cf</color>
+    <color name="light_yellow">#ebefbf</color>
+    <color name="light_brown">#ceb5a7</color>
+    <color name="light_purple">#92828d</color>
+    <color name="deep_purple">#adaabf</color>
+
+    <color name="blue_1">#087f8c</color>
+    <color name="black_blue_1">#095256</color>
+    <color name="green_1">#86a873</color>
+    <color name="blue_2">#5aaa95</color>
+    <color name="yellow_1">#bb9f06</color>
 </resources>
