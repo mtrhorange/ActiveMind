@@ -9,7 +9,6 @@
 
     <TextView
         android:id="@+id/endGameBox"
-        android:fontFamily="@font/josefinsans"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -36,7 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="scores"
-        android:fontFamily="@font/josefinsans"
         android:textColor="@color/color_white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Play Again"
-        android:fontFamily="@font/josefinsans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scoreBox" />
@@ -60,7 +57,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Back Home"
-        android:fontFamily="@font/josefinsans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playAgainBtn" />
