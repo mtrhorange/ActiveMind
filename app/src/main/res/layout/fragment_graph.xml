@@ -29,6 +29,7 @@
             android:gravity="center"
             android:padding="6dp"
             android:text="View your Game Scores"
+            android:fontFamily="@font/josefinsans"
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +43,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
             android:text="&lt;"
+            android:fontFamily="@font/josefinsans"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -54,6 +56,7 @@
             android:gravity="center"
             android:padding="6dp"
             android:text="GameName"
+            android:fontFamily="@font/josefinsans"
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/rightBtn"
             app:layout_constraintStart_toEndOf="@+id/leftBtn"
@@ -66,6 +69,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginRight="16dp"
             android:text="&gt;"
+            android:fontFamily="@font/josefinsans"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -88,6 +92,7 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="Number Memory Game"
+            android:fontFamily="@font/josefinsans"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,6 +105,7 @@
             android:layout_weight="1"
             android:visibility="gone"
             android:text="Sequence Memory Game"
+            android:fontFamily="@font/josefinsans"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/numberMemoryGameBtn" />
@@ -111,6 +117,7 @@
             android:layout_weight="1"
             android:visibility="gone"
             android:text="Word Memory Game"
+            android:fontFamily="@font/josefinsans"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sequenceMemoryGameBtn" />
@@ -140,6 +147,7 @@
             android:gravity="center"
             android:padding="16dp"
             android:text="Please Press the profile icon at the bottom right to login to view data"
+            android:fontFamily="@font/josefinsans"
             android:textColor="@color/white"
             android:textSize="34sp"
             app:layout_constraintBottom_toTopOf="@+id/view"
