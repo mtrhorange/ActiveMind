@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/LoginGroup">
 
         <ImageView
             android:id="@+id/login_logoBox"
-            android:layout_width="293dp"
-            android:layout_height="165dp"
+            android:layout_width="290dp"
+            android:layout_height="146dp"
             android:src="@drawable/brain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -30,7 +30,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            app:cardCornerRadius="32dp"
+            app:cardCornerRadius="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +39,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -144,7 +145,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/welcomeMsg"
@@ -217,9 +218,9 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_change_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_width="190dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/my_button_slient"
             android:fontFamily="@font/josefinsans"
             android:text="Change Password"
@@ -231,8 +232,8 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="105dp"
+            android:layout_height="45dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/my_button_slient"
             android:fontFamily="@font/josefinsans"
@@ -255,8 +256,8 @@
 
         <ImageView
             android:id="@+id/forgot_logoBox"
-            android:layout_width="300dp"
-            android:layout_height="200dp"
+            android:layout_width="290dp"
+            android:layout_height="146dp"
             android:src="@drawable/brain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -269,7 +270,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            app:cardCornerRadius="32dp"
+            app:cardCornerRadius="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -278,6 +279,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -368,8 +370,8 @@
 
         <ImageView
             android:id="@+id/register_logoBox"
-            android:layout_width="225dp"
-            android:layout_height="150dp"
+            android:layout_width="290dp"
+            android:layout_height="146dp"
             android:scaleX="1.3"
             android:scaleY="1.3"
             android:paddingTop="15dp"
@@ -380,11 +382,11 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="460dp"
+            android:layout_height="480dp"
             android:layout_marginTop="5dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            app:cardCornerRadius="32dp"
+            app:cardCornerRadius="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -392,7 +394,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="480dp"
+                android:padding="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -400,9 +403,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/josefinsans"
                     android:gravity="center"
                     android:text="Create An Account"
-                    android:fontFamily="@font/josefinsans"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -424,9 +427,9 @@
                     android:drawablePadding="16dp"
                     android:drawableTint="@color/grey_7"
                     android:ems="10"
+                    android:fontFamily="@font/josefinsans"
                     android:hint="First Name"
                     android:inputType="textPersonName"
-                    android:fontFamily="@font/josefinsans"
                     android:padding="8dp"
                     android:textSize="22sp" />
 
@@ -440,9 +443,9 @@
                     android:drawablePadding="16dp"
                     android:drawableTint="@color/grey_7"
                     android:ems="10"
+                    android:fontFamily="@font/josefinsans"
                     android:hint="Last Name"
                     android:inputType="textPersonName"
-                    android:fontFamily="@font/josefinsans"
                     android:padding="8dp"
                     android:textSize="22sp" />
 
@@ -456,9 +459,9 @@
                     android:drawablePadding="16dp"
                     android:drawableTint="@color/grey_7"
                     android:ems="10"
+                    android:fontFamily="@font/josefinsans"
                     android:hint="Email Address"
                     android:inputType="textEmailAddress"
-                    android:fontFamily="@font/josefinsans"
                     android:padding="8dp"
                     android:textSize="22sp" />
 
@@ -472,9 +475,9 @@
                     android:drawablePadding="16dp"
                     android:drawableTint="@color/grey_7"
                     android:ems="10"
+                    android:fontFamily="@font/josefinsans"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:fontFamily="@font/josefinsans"
                     android:padding="8dp"
                     android:textSize="22sp" />
 
@@ -488,9 +491,9 @@
                     android:drawablePadding="16dp"
                     android:drawableTint="@color/grey_7"
                     android:ems="10"
+                    android:fontFamily="@font/josefinsans"
                     android:hint="Confirm Password"
                     android:inputType="textPassword"
-                    android:fontFamily="@font/josefinsans"
                     android:padding="8dp"
                     android:textSize="22sp" />
 
@@ -498,27 +501,27 @@
                     android:id="@+id/button_do_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
                     android:background="@drawable/my_button_active"
-                    android:textColor="@color/white"
+                    android:fontFamily="@font/josefinsans"
                     android:text="sign up"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/josefinsans"/>
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_already_have_account"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="8dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/my_button_slient"
-                    android:text="already have an account?"
-                    android:fontFamily="@font/josefinsans"/>
+                    android:fontFamily="@font/josefinsans"
+                    android:text="already have an account?" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
