@@ -49,7 +49,7 @@
                     android:gravity="center"
                     android:text="Login with account"
                     android:fontFamily="@font/josefinsans"
-                    android:textColor="@color/colorPurple"
+                    android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -59,7 +59,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:background="@drawable/background" />
+                    android:background="@color/grey_7" />
 
                 <EditText
                     android:id="@+id/email_text_entry"
@@ -69,7 +69,7 @@
                     android:background="@drawable/textbox"
                     android:drawableLeft="@drawable/email"
                     android:drawablePadding="16dp"
-                    android:drawableTint="@color/colorPurple"
+                    android:drawableTint="@color/black"
                     android:ems="10"
                     android:hint="Email Address"
                     android:fontFamily="@font/josefinsans"
@@ -85,7 +85,7 @@
                     android:background="@drawable/textbox"
                     android:drawableLeft="@drawable/key"
                     android:drawablePadding="16dp"
-                    android:drawableTint="@color/colorPurple"
+                    android:drawableTint="@color/black"
                     android:ems="10"
                     android:hint="Password"
                     android:fontFamily="@font/josefinsans"
@@ -108,26 +108,27 @@
                     android:fontFamily="@font/josefinsans"
                     android:textAlignment="textEnd" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:background="@drawable/submit_btn"
+                    android:background="@drawable/my_button_active"
                     android:text="Sign In"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/josefinsans"
                     android:textSize="18sp"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:background="@drawable/submit_btn"
+                    android:background="@drawable/my_button_slient"
                     android:text="create account"
                     android:fontFamily="@font/josefinsans"
                     android:textSize="18sp"/>
@@ -248,7 +249,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
+        android:background="@color/white"
         android:visibility="gone"
         android:id="@+id/ForgotPasswordGroup">
 
@@ -287,7 +288,7 @@
                     android:gravity="center"
                     android:text="Forgot Your Password?"
                     android:fontFamily="@font/josefinsans"
-                    android:textColor="@color/colorPurple"
+                    android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -297,7 +298,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:background="@drawable/background" />
+                    android:background="@color/grey_7" />
 
                 <TextView
                     android:id="@+id/text_forgot_pass_detail"
@@ -318,7 +319,7 @@
                     android:background="@drawable/textbox"
                     android:drawableLeft="@drawable/email"
                     android:drawablePadding="16dp"
-                    android:drawableTint="@color/colorPurple"
+                    android:drawableTint="@color/grey_7"
                     android:ems="10"
                     android:hint="Email Address"
                     android:fontFamily="@font/josefinsans"
@@ -326,27 +327,28 @@
                     android:padding="16dp"
                     android:textSize="22sp" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_send_forgot"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="10dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:background="@drawable/submit_btn"
+                    android:background="@drawable/my_button_active"
                     android:text="Send"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/josefinsans"
                     android:textSize="18sp"
                     android:enabled="false"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_back_forgot"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="10dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:background="@drawable/submit_btn"
+                    android:background="@drawable/my_button_slient"
                     android:text="Back"
                     android:fontFamily="@font/josefinsans"
                     android:textSize="18sp"/>
@@ -360,7 +362,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
+        android:background="@color/white"
         android:visibility="gone"
         android:id="@+id/RegisterGroup">
 
@@ -401,7 +403,7 @@
                     android:gravity="center"
                     android:text="Create An Account"
                     android:fontFamily="@font/josefinsans"
-                    android:textColor="@color/colorPurple"
+                    android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -410,7 +412,7 @@
                     android:layout_height="5dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/background" />
+                    android:background="@color/grey_7" />
 
                 <EditText
                     android:id="@+id/register_first_name_text_entry"
@@ -420,7 +422,7 @@
                     android:background="@drawable/textbox"
                     android:drawableLeft="@drawable/user"
                     android:drawablePadding="16dp"
-                    android:drawableTint="@color/colorPurple"
+                    android:drawableTint="@color/grey_7"
                     android:ems="10"
                     android:hint="First Name"
                     android:inputType="textPersonName"
@@ -436,7 +438,7 @@
                     android:background="@drawable/textbox"
                     android:drawableLeft="@drawable/user"
                     android:drawablePadding="16dp"
-                    android:drawableTint="@color/colorPurple"
+                    android:drawableTint="@color/grey_7"
                     android:ems="10"
                     android:hint="Last Name"
                     android:inputType="textPersonName"
@@ -452,7 +454,7 @@
                     android:background="@drawable/textbox"
                     android:drawableLeft="@drawable/email"
                     android:drawablePadding="16dp"
-                    android:drawableTint="@color/colorPurple"
+                    android:drawableTint="@color/grey_7"
                     android:ems="10"
                     android:hint="Email Address"
                     android:inputType="textEmailAddress"
@@ -468,7 +470,7 @@
                     android:background="@drawable/textbox"
                     android:drawableLeft="@drawable/key"
                     android:drawablePadding="16dp"
-                    android:drawableTint="@color/colorPurple"
+                    android:drawableTint="@color/grey_7"
                     android:ems="10"
                     android:hint="Password"
                     android:inputType="textPassword"
@@ -484,7 +486,7 @@
                     android:background="@drawable/textbox"
                     android:drawableLeft="@drawable/key"
                     android:drawablePadding="16dp"
-                    android:drawableTint="@color/colorPurple"
+                    android:drawableTint="@color/grey_7"
                     android:ems="10"
                     android:hint="Confirm Password"
                     android:inputType="textPassword"
@@ -492,7 +494,7 @@
                     android:padding="8dp"
                     android:textSize="22sp" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_do_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -500,12 +502,13 @@
                     android:layout_marginBottom="4dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:background="@drawable/submit_btn"
+                    android:background="@drawable/my_button_active"
+                    android:textColor="@color/white"
                     android:text="sign up"
                     android:textSize="18sp"
                     android:fontFamily="@font/josefinsans"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_already_have_account"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -513,7 +516,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:background="@drawable/submit_btn"
+                    android:background="@drawable/my_button_slient"
                     android:text="already have an account?"
                     android:fontFamily="@font/josefinsans"/>
 
@@ -534,15 +537,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="174dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/textbox"
             android:drawableLeft="@drawable/key"
             android:drawablePadding="10dp"
-            android:drawableTint="@color/colorPurple"
+            android:drawableTint="@color/grey_7"
             android:ems="10"
-            android:hint="Old Password"
             android:fontFamily="@font/josefinsans"
+            android:hint="Old Password"
             android:inputType="textPassword"
             android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -555,15 +558,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/textbox"
             android:drawableLeft="@drawable/key"
             android:drawablePadding="10dp"
-            android:drawableTint="@color/colorPurple"
+            android:drawableTint="@color/grey_7"
             android:ems="10"
-            android:hint="New Password"
             android:fontFamily="@font/josefinsans"
+            android:hint="New Password"
             android:inputType="textPassword"
             android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -576,39 +579,42 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/textbox"
             android:drawableLeft="@drawable/key"
             android:drawablePadding="10dp"
-            android:drawableTint="@color/colorPurple"
+            android:drawableTint="@color/grey_7"
             android:ems="10"
-            android:hint="Confirm New Password"
             android:fontFamily="@font/josefinsans"
+            android:hint="Confirm New Password"
             android:inputType="textPassword"
             android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/new_password_text_entry" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_do_change_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="205dp"
+            android:layout_height="51dp"
             android:layout_marginTop="30dp"
-            android:text="Change Password"
+            android:background="@drawable/my_button_active"
             android:fontFamily="@font/josefinsans"
+            android:text="Change Password"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/confirm_new_password_text_entry" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_cancel_change_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="Back"
+            android:background="@drawable/my_button_slient"
             android:fontFamily="@font/josefinsans"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
