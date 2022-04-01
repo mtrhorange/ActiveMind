@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/background"
+            android:background="@color/grey_7"
             android:gravity="center"
             android:padding="6dp"
             android:text="View your Game Scores"
@@ -36,12 +36,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/leftBtn"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
+            android:background="@drawable/my_button_slient"
             android:text="&lt;"
             android:fontFamily="@font/josefinsans"
             android:textSize="24sp"
@@ -62,12 +63,13 @@
             app:layout_constraintStart_toEndOf="@+id/leftBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/rightBtn"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginRight="16dp"
+            android:background="@drawable/my_button_slient"
             android:text="&gt;"
             android:fontFamily="@font/josefinsans"
             android:textSize="24sp"
@@ -86,25 +88,27 @@
 
         </com.github.mikephil.charting.charts.BarChart>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/numberMemoryGameBtn"
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="Number Memory Game"
+            android:background="@drawable/my_button_active"
             android:fontFamily="@font/josefinsans"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/barChart" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sequenceMemoryGameBtn"
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:visibility="gone"
             android:text="Sequence Memory Game"
+            android:background="@drawable/my_button_active"
             android:fontFamily="@font/josefinsans"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,6 +121,7 @@
             android:layout_weight="1"
             android:visibility="gone"
             android:text="Word Memory Game"
+            android:background="@drawable/my_button_active"
             android:fontFamily="@font/josefinsans"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -135,7 +140,7 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background">
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/LoginMsg"
@@ -143,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
-            android:background="@drawable/submit_btn"
+            android:background="@color/grey_7"
             android:gravity="center"
             android:padding="16dp"
             android:text="Please Press the profile icon at the bottom right to login to view data"

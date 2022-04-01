@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
+        android:background="@color/white"
         android:visibility="gone"
         android:id="@+id/LoginGroup">
 
@@ -142,112 +142,105 @@
         android:id="@+id/LoggedInGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
+        android:background="@color/white"
         android:visibility="visible">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:src="@drawable/brain"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/welcomeMsg"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="25dp"
-            android:background="@drawable/rounded_box"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
             android:gravity="center"
             android:padding="6dp"
             android:text="Welcome to ActiveMind"
-            android:fontFamily="@font/josefinsans"
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_logged_in_name" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="25dp"
+            android:layout_width="130dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="64dp"
             android:src="@drawable/head"
-            app:civ_border_color="@color/orange"
+            app:civ_border_color="@color/grey_8"
             app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_logged_in_email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="326dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="19dp"
             android:background="@drawable/loginbox"
             android:drawableLeft="@drawable/email"
             android:drawablePadding="10dp"
-            android:drawableTint="@color/colorPurple"
+            android:drawableTint="@color/grey_8"
             android:ems="10"
+            android:fontFamily="@font/josefinsans"
             android:padding="15dp"
             android:text="User Email"
-            android:fontFamily="@font/josefinsans"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/profile_image"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-        <TextView
-            android:id="@+id/text_logged_in_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/loginbox"
-            android:drawableLeft="@drawable/user"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/colorPurple"
-            android:ems="10"
-            android:padding="15dp"
-            android:text="User Name"
-            android:fontFamily="@font/josefinsans"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/profile_image"
-            app:layout_constraintTop_toBottomOf="@+id/text_logged_in_email" />
-
-        <Button
-            android:id="@+id/button_change_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Change Password"
-            android:fontFamily="@font/josefinsans"
-            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcomeMsg" />
 
-        <Button
+        <TextView
+            android:id="@+id/text_logged_in_name"
+            android:layout_width="323dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/loginbox"
+            android:drawableLeft="@drawable/user"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/grey_8"
+            android:ems="10"
+            android:fontFamily="@font/josefinsans"
+            android:padding="15dp"
+            android:text="User Name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_logged_in_email" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_change_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="128dp"
+            android:background="@drawable/my_button_slient"
+            android:fontFamily="@font/josefinsans"
+            android:text="Change Password"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/text_logged_in_name"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_logged_in_name" />
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Logout"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/my_button_slient"
             android:fontFamily="@font/josefinsans"
+            android:text="Logout"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/button_change_password"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_change_password" />
+            app:layout_constraintTop_toBottomOf="@+id/button_change_password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
