@@ -8,10 +8,12 @@
     tools:context=".games.NumberMemoryActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/StartPageGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:id="@+id/StartPageGroup">
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <TextView
             android:id="@+id/titleText"
@@ -19,24 +21,24 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/numbergame_title"
             android:fontFamily="@font/josefinsans"
-            android:textStyle="bold"
+            android:text="@string/numbergame_title"
             android:textColor="@color/black"
             android:textSize="40sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            app:layout_constraintVertical_bias="0.110000014" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/startBtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/text_start"
-            android:fontFamily="@font/josefinsans"
             android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
+            android:text="@string/text_start"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,9 +51,9 @@
             android:id="@+id/helpBtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/text_help"
-            android:fontFamily="@font/josefinsans"
             android:background="@drawable/my_button_slient"
+            android:fontFamily="@font/josefinsans"
+            android:text="@string/text_help"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +61,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/startBtn"
             app:layout_constraintVertical_bias="0.15" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="128dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/number" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -371,7 +383,7 @@
         android:id="@+id/ResultGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="87dp">
 
