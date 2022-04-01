@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/white"
     tools:context=".games.WordMemoryActivity">
 
   <View
@@ -37,7 +37,7 @@
         android:gravity="center"
         android:text="Word \nMemory Game"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,12 +46,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.41" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/startBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/text_start"
+        android:background="@drawable/my_button_active"
         android:fontFamily="@font/josefinsans"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -59,11 +61,12 @@
         app:layout_constraintTop_toBottomOf="@+id/startTitleText"
         app:layout_constraintVertical_bias="0.12" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/helpBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/text_help"
+        android:background="@drawable/my_button_slient"
         android:fontFamily="@font/josefinsans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +92,7 @@
         android:layout_weight="1"
         android:text="Level: 1"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="@+id/livesText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,7 +110,7 @@
         android:text="Lives: 3"
         android:fontFamily="@font/josefinsans"
         android:textAlignment="textEnd"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +126,7 @@
         android:gravity="center"
         android:text="Remember the word"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +140,7 @@
         android:layout_width="298dp"
         android:layout_height="138dp"
         android:layout_marginTop="36dp"
-        android:background="@drawable/game_background"
+        android:background="@color/grey_7"
         android:fontFamily="@font/josefinsans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -151,19 +154,20 @@
         android:layout_marginTop="48dp"
         android:text="Placeholder"
         android:fontFamily="@font/josefinsans"
-        android:textColor="#333333"
+        android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="@+id/wordView"
         app:layout_constraintStart_toStartOf="@+id/wordView"
         app:layout_constraintTop_toTopOf="@+id/wordView" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/seenWordBtn"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="102dp"
         android:layout_height="57dp"
         android:text="Seen"
         android:fontFamily="@font/josefinsans"
+        android:background="@drawable/my_button_slient"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -172,12 +176,14 @@
         app:layout_constraintTop_toBottomOf="@+id/wordView"
         app:layout_constraintVertical_bias="0.258" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/newWordBtn"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="102dp"
         android:layout_height="57dp"
         android:text="New"
+        android:background="@drawable/my_button_active"
+        android:textColor="@color/white"
         android:fontFamily="@font/josefinsans"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="@+id/seenWordBtn"
@@ -204,7 +210,7 @@
         android:gravity="center"
         android:text="Word \nMemory Game"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/endLevelText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -220,7 +226,8 @@
         android:gravity="center"
         android:text="@string/text_gameOver"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/endTitleText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -236,7 +243,7 @@
         android:gravity="center"
         android:text="Level: 12"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -244,12 +251,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.52" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/retryBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/text_retry"
+        android:background="@drawable/my_button_active"
         android:fontFamily="@font/josefinsans"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -264,11 +273,12 @@
       android:layout_height="match_parent"
       android:visibility="visible">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/backBtn"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@drawable/my_button_slient"
         android:text="X"
         android:fontFamily="@font/josefinsans"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -286,7 +296,7 @@
         android:gravity="center"
         android:text="@string/help_wordGame"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -298,11 +308,12 @@
   </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-  <Button
+  <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/exitBtn"
       style="@style/Widget.AppCompat.Button"
       android:layout_width="50dp"
       android:layout_height="50dp"
+      android:background="@drawable/my_button_slient"
       android:text="X"
       android:fontFamily="@font/josefinsans"
       app:layout_constraintBottom_toBottomOf="parent"
