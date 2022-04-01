@@ -278,18 +278,13 @@ public class ProfileFragment extends Fragment {
                 changePassGroup.setVisibility(View.GONE);
             }
             else if (loginState == LoginState.IN ) {
-                String email = firebaseUser.getEmail();
-                String[] parts = email.split("@");
-                String part1 = parts[0]; // 004
-                String part2 = parts[1];
-                String newEmail = part1+"\n@"+part2;
                 loginGroup.setVisibility(View.GONE);
                 loggedInGroup.setVisibility(View.VISIBLE);
                 forgotPassGroup.setVisibility(View.GONE);
                 registerGroup.setVisibility(View.GONE);
                 changePassGroup.setVisibility(View.GONE);
                 textLoggedInName.setText(firebaseUser.getDisplayName());
-                textLoggedInEmail.setText(newEmail);
+                textLoggedInEmail.setText(firebaseUser.getEmail());
                 oldPassEdit.setText("");
                 newPassEdit.setText("");
                 confirmNewPassEdit.setText("");
