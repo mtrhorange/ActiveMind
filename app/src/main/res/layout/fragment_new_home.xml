@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
+    android:background="@color/white"
     tools:context="MainActivity">
 
     <View
         android:id="@+id/view2"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:background="@drawable/background_bottom"
+        android:background="@color/grey_8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +23,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_box"
+        android:background="@drawable/my_button_slient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
         android:layout_marginTop="10dp"
         android:text="Instructions"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintHorizontal_bias="0.371"
@@ -59,8 +59,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="- Select a Game to Play"
+        android:textColor="@color/black"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -70,8 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="- Play daily"
+        android:textColor="@color/black"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
         app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -81,8 +81,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="- Get higher scores"
+        android:textColor="@color/black"
         android:fontFamily="@font/josefinsans"
-        android:textColor="@color/color_white"
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="- Keep your mind active"
-        android:textColor="@color/color_white"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
