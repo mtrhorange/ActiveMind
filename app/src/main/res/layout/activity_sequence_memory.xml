@@ -275,6 +275,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.89" />
 
+        <ImageView
+            android:id="@+id/gameOverImage"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/gameOverText"
+            app:srcCompat="@drawable/gameover" />
+
         <TextView
             android:id="@+id/gameOverText"
             android:layout_width="wrap_content"
@@ -289,7 +304,7 @@
             app:layout_constraintBottom_toTopOf="@+id/endTitleText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameOverImage"
             app:layout_constraintVertical_bias="0.75" />
 
         <TextView

@@ -19,25 +19,23 @@
         <entry key="..\:/Android/AndroidStudioProjects/ActiveMind/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/drawable/my_button.xml" value="0.1805" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/drawable/my_button_slient.xml" value="0.1795" />
-        <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/drawable/textbox.xml" value="0.1" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/activity_end_number_game.xml" value="0.25" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/activity_end_sequence.xml" value="0.25" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/activity_end_word.xml" value="0.125" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/activity_number_memory.xml" value="0.25" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/activity_sequence_memory.xml" value="0.1453804347826087" />
-        <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/activity_word_memory.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/app_bar_main.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/content_main.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_gallery.xml" value="0.1453804347826087" />
-        <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.165" />
+        <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_graph.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_history.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_home.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_new_home.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_numbergame.xml" value="0.1453804347826087" />
-        <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_profile.xml" value="0.165" />
+        <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_profile.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/fragment_slideshow.xml" value="0.1453804347826087" />
-        <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/item_category.xml" value="0.335" />
+        <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/item_category.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/nav_header_main.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/layout/push_notification.xml" value="0.1453804347826087" />
         <entry key="..\:/Study/NTU/Y3S2/3002/ActiveMind/app/src/main/res/menu/activity_main_drawer.xml" value="0.2265625" />
@@ -113,6 +111,37 @@
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/layout/push_notification.xml" value="0.2545289855072464" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/menu/activity_main_drawer.xml" value="0.3359375" />
         <entry key="..\:/Users/wehweh/Desktop/ActiveMind/app/src/main/res/menu/menu_bottom.xml" value="0.3359375" />
+        <entry key="app/src/main/res/drawable/background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_bottom.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bannerbox.xml" value="0.1005" />
+        <entry key="app/src/main/res/drawable/baseline_calendar_today_24.xml" value="0.1685" />
+        <entry key="app/src/main/res/drawable/game_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/loginbox.xml" value="0.1005" />
+        <entry key="app/src/main/res/drawable/submit_btn.xml" value="0.166" />
+        <entry key="app/src/main/res/font/josefinSans.xml" value="0.1" />
+        <entry key="app/src/main/res/font/josefinsans.xml" value="0.33487179487179486" />
+        <entry key="app/src/main/res/font/new_font.xml" value="0.34010416666666665" />
+        <entry key="app/src/main/res/layout/activity_end_number_game.xml" value="0.182518115942029" />
+        <entry key="app/src/main/res/layout/activity_end_sequence.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/activity_end_word.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/activity_number_memory.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/activity_sequence_memory.xml" value="0.19990234375000002" />
+        <entry key="app/src/main/res/layout/activity_word_memory.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/fragment_graph.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.19444444444444445" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/fragment_new_home.xml" value="0.3130241946897645" />
+        <entry key="app/src/main/res/layout/fragment_numbergame.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/layout/item_category.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/push_notification.xml" value="0.2006340579710145" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.23802083333333332" />
       </map>
     </option>
   </component>

@@ -148,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
-            android:background="@color/grey_7"
+            android:background="@drawable/bannerbox"
             android:gravity="center"
             android:padding="16dp"
             android:text="Please Press the profile icon at the bottom right to login to view data"

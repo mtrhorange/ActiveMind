@@ -368,10 +368,27 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ResultGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:id="@+id/ResultGroup">
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="87dp">
+
+
+        <ImageView
+            android:id="@+id/gameOverImage"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/gameover" />
 
         <TextView
             android:id="@+id/gameOverText"
@@ -379,17 +396,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/text_gameOver"
             android:textColor="@color/black"
-            android:fontFamily="@font/josefinsans"
             android:textSize="34sp"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/numberResultText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.745" />
+            app:layout_constraintTop_toBottomOf="@+id/gameOverImage" />
 
         <TextView
             android:id="@+id/numberResultText"
@@ -397,9 +414,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="128dp"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/text_number"
             android:textColor="@color/black"
-            android:fontFamily="@font/josefinsans"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -414,9 +432,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/num_holder"
             android:textColor="@color/black"
-            android:fontFamily="@font/josefinsans"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -430,9 +448,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/text_answer"
             android:textColor="@color/black"
-            android:fontFamily="@font/josefinsans"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -446,9 +464,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/num_holder"
             android:textColor="@color/black"
-            android:fontFamily="@font/josefinsans"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -462,9 +480,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/level_holder"
             android:textColor="@color/black"
-            android:fontFamily="@font/josefinsans"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -479,8 +497,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:background="@drawable/my_button_active"
-            android:text="@string/text_next"
             android:fontFamily="@font/josefinsans"
+            android:text="@string/text_next"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -494,7 +512,7 @@
         android:id="@+id/HelpGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/backBtn"

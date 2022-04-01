@@ -38,7 +38,7 @@ public class NewHomeFragment extends Fragment {
         categories.add(new CategoryModel("Number Memory Game","Number\nMemory\nGame",R.drawable.thumb));
         categories.add(new CategoryModel("Sequence Memory Game","Sequence\nMemory\nGame",R.drawable.medal));
         categories.add(new CategoryModel("Word Memory Game","Word\nMemory\nGame",R.drawable.thisfingers));
-        categories.add(new CategoryModel("More Game","More\nGames\nComing",R.drawable.lock));
+        categories.add(new CategoryModel("More Game","More\nGames\nComing", R.drawable.locknew));
 
         CategoryAdapter adapter = new CategoryAdapter(getContext(), categories);
         binding.categoryList.setLayoutManager(new GridLayoutManager(getContext(), 2));
