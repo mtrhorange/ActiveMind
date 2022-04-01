@@ -27,7 +27,7 @@
       android:id="@+id/StartPageGroup"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:visibility="visible"
+      android:visibility="gone"
       tools:layout_editor_absoluteX="-44dp"
       tools:layout_editor_absoluteY="16dp">
 
@@ -69,7 +69,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/my_button_slient"
+        android:background="@drawable/my_button_silent"
         android:fontFamily="@font/josefinsans"
         android:text="@string/text_help"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -181,7 +181,7 @@
         android:layout_height="57dp"
         android:text="Seen"
         android:fontFamily="@font/josefinsans"
-        android:background="@drawable/my_button_slient"
+        android:background="@drawable/my_button_silent"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -212,7 +212,7 @@
       android:id="@+id/ResultGroup"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:visibility="gone"
+      android:visibility="visible"
       tools:layout_editor_absoluteX="186dp"
       tools:layout_editor_absoluteY="16dp">
 
@@ -220,7 +220,7 @@
         android:id="@+id/endTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="268dp"
         android:layout_weight="1"
         android:fontFamily="@font/josefinsans"
         android:gravity="center"
@@ -228,8 +228,9 @@
         android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameOverText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/gameOverImage"
@@ -239,28 +240,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/endTitleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/gameOverText"
         app:srcCompat="@drawable/gameover" />
-
-    <TextView
-        android:id="@+id/gameOverText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:fontFamily="@font/josefinsans"
-        android:gravity="center"
-        android:text="@string/text_gameOver"
-        android:textColor="@color/black"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameOverImage" />
 
     <TextView
         android:id="@+id/endLevelText"
@@ -304,7 +289,7 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/my_button_slient"
+        android:background="@drawable/my_button_silent"
         android:text="X"
         android:fontFamily="@font/josefinsans"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -339,7 +324,7 @@
       style="@style/Widget.AppCompat.Button"
       android:layout_width="50dp"
       android:layout_height="50dp"
-      android:background="@drawable/my_button_slient"
+      android:background="@drawable/my_button_silent"
       android:text="X"
       android:fontFamily="@font/josefinsans"
       app:layout_constraintBottom_toBottomOf="parent"

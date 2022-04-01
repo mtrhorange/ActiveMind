@@ -242,7 +242,7 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         public ButtonCountdown(long millisInFuture, long countDownInterval, Button btn) {
             super(millisInFuture, countDownInterval);
             gameBtn = btn;
-            gameBtn.setForeground(getDrawable(R.drawable.my_button_slient));
+            gameBtn.setForeground(getDrawable(R.drawable.my_button_silent));
         }
 
         @Override

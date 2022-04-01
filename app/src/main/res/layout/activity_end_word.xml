@@ -62,7 +62,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@drawable/my_button_slient"
+        android:background="@drawable/my_button_silent"
         android:text="Back Home"
         android:textColor="@color/black"
         android:fontFamily="@font/josefinsans"
