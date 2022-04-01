@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,23 +26,26 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/background"
+            android:background="@drawable/bannerbox"
             android:gravity="center"
             android:padding="6dp"
             android:text="View your Game Scores"
+            android:fontFamily="@font/josefinsans"
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/leftBtn"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/my_button_silent"
             android:text="&lt;"
+            android:fontFamily="@font/josefinsans"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -54,18 +58,22 @@
             android:gravity="center"
             android:padding="6dp"
             android:text="GameName"
+            android:fontFamily="@font/josefinsans"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/rightBtn"
             app:layout_constraintStart_toEndOf="@+id/leftBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/rightBtn"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
+            android:background="@drawable/my_button_silent"
             android:text="&gt;"
+            android:fontFamily="@font/josefinsans"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -75,6 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_marginTop="6dp"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,35 +91,41 @@
 
         </com.github.mikephil.charting.charts.BarChart>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/numberMemoryGameBtn"
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="Number Memory Game"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/barChart" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sequenceMemoryGameBtn"
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:visibility="gone"
             android:text="Sequence Memory Game"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/numberMemoryGameBtn" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/wordMemoryGameBtn"
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:visibility="gone"
             android:text="Word Memory Game"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sequenceMemoryGameBtn" />
@@ -128,7 +143,7 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background">
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/LoginMsg"
@@ -136,10 +151,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
-            android:background="@drawable/submit_btn"
+            android:background="@drawable/bannerbox"
             android:gravity="center"
             android:padding="16dp"
             android:text="Please Press the profile icon at the bottom right to login to view data"
+            android:fontFamily="@font/josefinsans"
             android:textColor="@color/white"
             android:textSize="34sp"
             app:layout_constraintBottom_toTopOf="@+id/view"
@@ -151,9 +167,9 @@
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:rotation="90"
-            android:src="@drawable/hand"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/fingerpoint"
             app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent" />
 

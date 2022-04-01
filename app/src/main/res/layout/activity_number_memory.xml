@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/white"
     tools:context=".games.NumberMemoryActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/StartPageGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        android:id="@+id/StartPageGroup">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <TextView
             android:id="@+id/titleText"
@@ -19,19 +21,23 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/numbergame_title"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="40sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            app:layout_constraintVertical_bias="0.110000014" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/startBtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/text_start"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -41,18 +47,31 @@
             app:layout_constraintTop_toBottomOf="@+id/titleText"
             app:layout_constraintVertical_bias="0.12" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/helpBtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/my_button_silent"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/text_help"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/startBtn"
             app:layout_constraintVertical_bias="0.15" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/number" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,7 +87,8 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:text="@string/text_number"
-            android:textColor="#A4C639"
+            android:fontFamily="@font/josefinsans"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/numberText"
             app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +104,8 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:text="@string/num_holder"
-            android:textColor="@color/white"
+            android:fontFamily="@font/josefinsans"
+            android:textColor="@color/black"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +119,7 @@
             android:layout_width="187dp"
             android:layout_height="25dp"
             android:progress="100"
-            android:progressTint="@color/colorPurple"
+            android:progressTint="@color/black_blue_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +131,7 @@
         android:id="@+id/QueryGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:layout_editor_absoluteX="-38dp"
         tools:layout_editor_absoluteY="56dp">
 
@@ -121,7 +142,8 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:text="What was the number?"
-            android:textColor="@color/white"
+            android:fontFamily="@font/josefinsans"
+            android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/answerView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -136,7 +158,8 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:text="Press button to submit"
-            android:textColor="@color/white"
+            android:fontFamily="@font/josefinsans"
+            android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/answerView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -167,6 +190,7 @@
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="@string/num_holder"
+            android:fontFamily="@font/josefinsans"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/answerView"
@@ -175,14 +199,15 @@
             app:layout_constraintTop_toTopOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.5" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submitBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentLeft="true"
-            android:background="@color/white"
+            android:background="@drawable/my_button_active"
             android:text="@string/text_submit"
+            android:fontFamily="@font/josefinsans"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -190,31 +215,15 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.048" />
 
-        <Button
-            android:id="@+id/num1Btn"
-            android:layout_width="54dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/pressBtnText"
-            android:layout_alignParentStart="true"
-            android:background="@color/white"
-            android:text="1"
-            android:textSize="22sp"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/answerView"
-            app:layout_constraintVertical_bias="0.25" />
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num2Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@drawable/my_button_active"
             android:text="2"
+            android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -224,121 +233,164 @@
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.25" />
 
-        <Button
-            android:id="@+id/num3Btn"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/backspaceBtn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
-            android:text="3"
-            android:textSize="22sp"
+            android:background="@drawable/my_button_active"
+            android:foreground="@drawable/round_backspace_20"
+            android:fontFamily="@font/josefinsans"
             android:textColor="#FFFFFF"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintHorizontal_bias="0.927"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.25" />
 
-        <Button
-            android:id="@+id/num4Btn"
-            android:layout_width="54dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/pressBtnText"
-            android:layout_alignParentStart="true"
-            android:background="@color/white"
-            android:text="4"
-            android:textSize="22sp"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/answerView"
-            app:layout_constraintVertical_bias="0.45" />
-
-        <Button
-            android:id="@+id/num5Btn"
-            android:layout_width="54dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/pressBtnText"
-            android:layout_alignParentStart="true"
-            android:background="@color/white"
-            android:text="5"
-            android:textSize="22sp"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/answerView"
-            app:layout_constraintVertical_bias="0.45" />
-
-        <Button
-            android:id="@+id/num6Btn"
-            android:layout_width="54dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/pressBtnText"
-            android:layout_alignParentStart="true"
-            android:background="@color/white"
-            android:text="6"
-            android:textSize="22sp"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/answerView"
-            app:layout_constraintVertical_bias="0.45" />
-
-        <Button
-            android:id="@+id/num7Btn"
-            android:layout_width="54dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/pressBtnText"
-            android:layout_alignParentStart="true"
-            android:background="@color/white"
-            android:text="7"
-            android:textSize="22sp"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/answerView"
-            app:layout_constraintVertical_bias="0.65" />
-
-        <Button
-            android:id="@+id/num8Btn"
-            android:layout_width="54dp"
-            android:layout_height="45dp"
-            android:layout_below="@+id/pressBtnText"
-            android:layout_alignParentStart="true"
-            android:background="@color/white"
-            android:text="8"
-            android:textSize="22sp"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/answerView"
-            app:layout_constraintVertical_bias="0.65" />
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num9Btn"
             android:layout_width="54dp"
             android:layout_height="45dp"
             android:layout_below="@+id/pressBtnText"
             android:layout_alignParentStart="true"
-            android:background="@color/white"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
             android:text="9"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.722"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerView"
+            app:layout_constraintVertical_bias="0.652" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/num6Btn"
+            android:layout_width="54dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/pressBtnText"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
+            android:text="6"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.722"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerView"
+            app:layout_constraintVertical_bias="0.45" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/num3Btn"
+            android:layout_width="54dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/pressBtnText"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
+            android:text="3"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.722"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerView"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/num5Btn"
+            android:layout_width="54dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/pressBtnText"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/my_button_active"
+            android:text="5"
+            android:fontFamily="@font/josefinsans"
             android:textSize="22sp"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerView"
+            app:layout_constraintVertical_bias="0.45" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/num7Btn"
+            android:layout_width="54dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/pressBtnText"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
+            android:text="7"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.274"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerView"
+            app:layout_constraintVertical_bias="0.652" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/num1Btn"
+            android:layout_width="54dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/pressBtnText"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
+            android:text="1"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.274"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerView"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/num4Btn"
+            android:layout_width="54dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/pressBtnText"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
+            android:text="4"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.274"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answerView"
+            app:layout_constraintVertical_bias="0.45" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/num8Btn"
+            android:layout_width="54dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/pressBtnText"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/my_button_active"
+            android:text="8"
+            android:fontFamily="@font/josefinsans"
+            android:textSize="22sp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/answerView"
             app:layout_constraintVertical_bias="0.65" />
@@ -347,27 +399,28 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ResultGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        android:id="@+id/ResultGroup">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="87dp">
 
-        <TextView
-            android:id="@+id/gameOverText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/gameOverImage"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/text_gameOver"
-            android:textColor="@color/white"
-            android:textSize="34sp"
-            android:visibility="invisible"
+            android:layout_marginTop="152dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/numberResultText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.745" />
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/gameover" />
 
         <TextView
             android:id="@+id/numberResultText"
@@ -375,8 +428,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="128dp"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/text_number"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -391,8 +446,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/num_holder"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -406,8 +462,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/text_answer"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -421,8 +478,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/num_holder"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -436,8 +494,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/level_holder"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -451,7 +510,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:background="@color/white"
+            android:background="@drawable/my_button_active"
+            android:fontFamily="@font/josefinsans"
             android:text="@string/text_next"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -466,14 +526,16 @@
         android:id="@+id/HelpGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:visibility="gone">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/backBtn"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="@drawable/my_button_silent"
             android:text="X"
+            android:fontFamily="@font/josefinsans"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -488,7 +550,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/help_numberGame"
-            android:textColor="@color/color_white"
+            android:textColor="@color/black"
+            android:fontFamily="@font/josefinsans"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -499,11 +562,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/exitBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@drawable/my_button_silent"
         android:text="X"
+        android:fontFamily="@font/josefinsans"
         style="@style/Widget.AppCompat.Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

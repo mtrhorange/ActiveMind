@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/white"
     tools:context=".games.EndSequenceActivity">
 
     <TextView
@@ -13,7 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="End Game"
-        android:textColor="@color/color_white"
+        android:fontFamily="@font/josefinsans"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,28 +37,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="scores"
-        android:textColor="@color/color_white"
+        android:fontFamily="@font/josefinsans"
+        android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/endGameImage" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/playAgainBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:background="@drawable/my_button_active"
         android:text="Play Again"
+        android:textColor="@color/white"
+        android:fontFamily="@font/josefinsans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scoreBox" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/backBtn2"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:background="@drawable/my_button_silent"
         android:text="Back Home"
+        android:fontFamily="@font/josefinsans"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playAgainBtn" />

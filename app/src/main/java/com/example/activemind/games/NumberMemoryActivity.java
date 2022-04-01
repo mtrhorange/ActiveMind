@@ -3,10 +3,12 @@ package com.example.activemind.games;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,8 +25,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
     private Button backBtn;
     ActivityNumberMemoryBinding binding;
     private ConstraintLayout startPageGroup, showNumberGroup, queryGroup, resultGroup, helpGroup;
-    private TextView numberText, numberText2, answerText, answerInputText, levelText, gameOverText;
-    private Button submitBtn, nextBtn, startBtn, exitBtn, helpBtn;
+    private TextView numberText, numberText2, answerText, answerInputText, levelText;
+    private ImageView gameOverImage;
+    private Button submitBtn, nextBtn, startBtn, exitBtn, helpBtn, backspaceBtn;
     private List<Button> numberBtns;
     private Countdown timerCount;
     private ProgressBar progressBar;
@@ -61,8 +64,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
         nextBtn = binding.nextBtn;
         exitBtn = binding.exitBtn;
         helpBtn = binding.helpBtn;
+        backspaceBtn = binding.backspaceBtn;
         answerInputText = binding.answerInputText;
-        gameOverText = binding.gameOverText;
+        gameOverImage = binding.gameOverImage;
 
         startPageGroup.setVisibility(View.VISIBLE);
         showNumberGroup.setVisibility(View.GONE);
@@ -115,6 +119,16 @@ public class NumberMemoryActivity extends AppCompatActivity {
             }
         });
 
+        backspaceBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                String str = answerInputText.getText().toString();
+                if (str.length() > 0) {
+                    String newStr = str.substring(0, str.length() - 1);
+                    answerInputText.setText(newStr);
+                }
+            }
+        });
+
     }
 
     private void setAnswerButtons() {
@@ -136,7 +150,7 @@ public class NumberMemoryActivity extends AppCompatActivity {
     public void newGame() {
         level = 0;
         isGameEnded = false;
-        gameOverText.setVisibility(View.INVISIBLE);
+        gameOverImage.setImageDrawable(getDrawable(R.drawable.good));
         displayStartPage();
     }
 
@@ -198,7 +212,7 @@ public class NumberMemoryActivity extends AppCompatActivity {
 
     public void endGame() {
         nextBtn.setText(R.string.text_retry);
-        gameOverText.setVisibility(View.VISIBLE);
+        gameOverImage.setImageDrawable(getDrawable(R.drawable.gameover));
         isGameEnded = true;
         FirebaseHelper.updateUserGameData("NumberMemory", level);
     }

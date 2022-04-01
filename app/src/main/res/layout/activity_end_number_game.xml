@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/white"
     tools:context=".games.EndNumberGameActivity">
 
     <TextView
         android:id="@+id/endGameBox"
+        android:fontFamily="@font/josefinsans"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="End Game"
-        android:textColor="@color/color_white"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/endGameBox"
-        app:srcCompat="@drawable/brain_training" />
+        app:srcCompat="@drawable/brain_sequence" />
 
     <TextView
         android:id="@+id/scoreBox"
@@ -35,28 +37,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="scores"
-        android:textColor="@color/color_white"
+        android:fontFamily="@font/josefinsans"
+        android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/endGameImage" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/playAgainBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:background="@drawable/my_button_active"
+        android:textColor="@color/white"
         android:text="Play Again"
+        android:fontFamily="@font/josefinsans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scoreBox" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/backBtn2"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:background="@drawable/my_button_silent"
+        android:textColor="@color/black"
         android:text="Back Home"
+        android:fontFamily="@font/josefinsans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playAgainBtn" />

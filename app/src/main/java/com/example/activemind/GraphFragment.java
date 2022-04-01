@@ -1,5 +1,6 @@
 package com.example.activemind;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -222,7 +223,7 @@ public class GraphFragment extends Fragment {
         }
 
         BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Game Scores");
-        barDataSet.setColors(ColorTemplate.rgb("673AB7"));
+        barDataSet.setColors(ColorTemplate.rgb("495057"));
         barDataSet.setValueTextSize(12);
         barDataSet.setValueFormatter(new ValueFormatter() {
             @Override

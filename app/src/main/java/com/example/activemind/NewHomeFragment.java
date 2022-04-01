@@ -1,5 +1,6 @@
 package com.example.activemind;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -34,10 +35,10 @@ public class NewHomeFragment extends Fragment {
         binding = FragmentNewHomeBinding.inflate(inflater, container, false);
 
         ArrayList<CategoryModel> categories = new ArrayList<>();
-        categories.add(new CategoryModel("Number Memory Game","Number\nMemory\nGame",R.drawable.brain_training));
-        categories.add(new CategoryModel("Sequence Memory Game","Sequence\nMemory\nGame",R.drawable.brain_sequence));
-        categories.add(new CategoryModel("Word Memory Game","Word\nMemory\nGame",R.drawable.brain_word));
-        categories.add(new CategoryModel("More Game","More\nGames\nComing",R.drawable.brain_more));
+        categories.add(new CategoryModel("Number Memory Game","Number\nMemory\nGame",R.drawable.thumb));
+        categories.add(new CategoryModel("Sequence Memory Game","Sequence\nMemory\nGame",R.drawable.medal));
+        categories.add(new CategoryModel("Word Memory Game","Word\nMemory\nGame",R.drawable.thisfingers));
+        categories.add(new CategoryModel("More Game","More\nGames\nComing", R.drawable.locknew));
 
         CategoryAdapter adapter = new CategoryAdapter(getContext(), categories);
         binding.categoryList.setLayoutManager(new GridLayoutManager(getContext(), 2));

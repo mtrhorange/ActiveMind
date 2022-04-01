@@ -242,7 +242,7 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         public ButtonCountdown(long millisInFuture, long countDownInterval, Button btn) {
             super(millisInFuture, countDownInterval);
             gameBtn = btn;
-            gameBtn.setForeground(getDrawable(R.drawable.button_clicked));
+            gameBtn.setForeground(getDrawable(R.drawable.my_button_silent));
         }
 
         @Override
@@ -254,7 +254,7 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         @Override
         public void onTick(long millisUntilFinished) {
             if (millisUntilFinished <= 200)
-                gameBtn.setForeground(getDrawable(R.drawable.bg_button));
+                gameBtn.setForeground(getDrawable(R.drawable.my_button_active));
         }
     }
 
@@ -272,9 +272,5 @@ public class SequenceMemoryActivity extends AppCompatActivity {
             isClickable = true;
         }
     }
-
-
-
-
 }
 
