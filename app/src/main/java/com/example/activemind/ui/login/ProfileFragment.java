@@ -483,6 +483,11 @@ public class ProfileFragment extends Fragment {
                 registerPasswordEdit.requestFocus();
                 return false;
             }
+            else if (pS.length() > 20) {
+                registerPasswordEdit.setError("Password must not be more than 20 characters");
+                registerPasswordEdit.requestFocus();
+                return false;
+            }
         }
 
         return true;
