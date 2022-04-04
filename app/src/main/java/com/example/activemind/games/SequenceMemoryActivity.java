@@ -44,6 +44,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         setup();
     }
 
+    /**
+     * Initialize variables and buttons
+     */
     private void setup() {
         startPageGroup = binding.StartPageGroup;
         gameGroup = binding.GameGroup;
@@ -104,6 +107,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         startCountdown = new StartCountdown(1000L, 100);
     }
 
+    /**
+     * Setup sequence buttons
+     */
     private void setGameButtons() {
         for (int i=1; i <= 9; i++) {
             gameBtnList.add(findViewById(getResources().getIdentifier("num" + i + "Btn", "id", getPackageName())));
@@ -120,6 +126,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Start a new game
+     */
     private void newGame() {
         startPageGroup.setVisibility(View.GONE);
         gameGroup.setVisibility(View.VISIBLE);
@@ -133,6 +142,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Start next round
+     */
     private void newRound() {
         level += 1;
         String levelStr = "Level: " + level;
@@ -144,6 +156,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         startCountdown.start();
     }
 
+    /**
+     * End the game, goes to game over screen
+     */
     private void endGame() {
         gameGroup.setVisibility(View.GONE);
         resultGroup.setVisibility(View.VISIBLE);
@@ -152,11 +167,17 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         FirebaseHelper.updateUserGameData("SequenceMemory", level);
     }
 
+    /**
+     * Go back to start screen from game over screen
+     */
     private void restartGame() {
         startPageGroup.setVisibility(View.VISIBLE);
         resultGroup.setVisibility(View.GONE);
     }
 
+    /**
+     * When user clicks a wrong button
+     */
     private void wrongInput() {
         lives -= 1;
         String livesStr = "Lives: " + lives;
@@ -173,6 +194,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Check user input if correct or wrong
+     */
     private void checkInput() {
         int numInputs = clickedOrder.size();
         if (clickedOrder.get(numInputs - 1).equals(buttonOrder.get(numInputs - 1))) {
@@ -186,7 +210,6 @@ public class SequenceMemoryActivity extends AppCompatActivity {
             isClickable = false;
             wrongInput();
         }
-
         /*if (clickedOrder.size() == buttonOrder.size()) {
             isClickable = false;
             if (clickedOrder.equals(buttonOrder)) {
@@ -195,6 +218,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         }*/
     }
 
+    /**
+     * Timer to light up buttons
+     */
     public class StartCountdown extends CountDownTimer {
         public StartCountdown(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
@@ -212,6 +238,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Timer to flash overlay for correct and wrong inputs
+     */
     public class OverlayCountdown extends CountDownTimer {
         View overlay;
         public OverlayCountdown(long millisInFuture, long countDownInterval, View ov) {
@@ -237,6 +266,9 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Timer for each button flash
+     */
     public class ButtonCountdown extends CountDownTimer {
         Button gameBtn;
         public ButtonCountdown(long millisInFuture, long countDownInterval, Button btn) {
@@ -258,11 +290,18 @@ public class SequenceMemoryActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Light up the button
+     * @param btn Sequence button to light up
+     */
     public void lightButton(Button btn) {
         buttonCount = new ButtonCountdown( 750L, 100, btn);
         buttonCount.start();
     }
 
+    /**
+     * Light up next button in sequence order
+     */
     public void lightNextButton() {
         if (buttonIdx < buttonOrder.size()){
             lightButton(gameBtnList.get(buttonOrder.get(buttonIdx)));
