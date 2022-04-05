@@ -46,6 +46,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
         newGame();
     }
 
+    /**
+     * Initialize variables and buttons
+     */
     public void setup() {
         startPageGroup = binding.StartPageGroup;
         showNumberGroup = binding.ShowNumberGroup;
@@ -131,6 +134,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Setup number buttons
+     */
     private void setAnswerButtons() {
         numberBtns = new ArrayList<>();
         for (int i=1; i <= 9; i++) {
@@ -147,6 +153,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Start a new game
+     */
     public void newGame() {
         level = 0;
         isGameEnded = false;
@@ -154,6 +163,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
         displayStartPage();
     }
 
+    /**
+     * Countdown timer for showing number to player
+     */
     public class Countdown extends CountDownTimer {
         public Countdown(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
@@ -173,6 +185,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Start new round
+     */
     public void newRound() {
         displayShowNumberPage();
 
@@ -193,11 +208,17 @@ public class NumberMemoryActivity extends AppCompatActivity {
         timerCount.start();
     }
 
+    /**
+     * Go to player input screen
+     */
     public void answerRound() {
         answerInputText.setText("");
         displayQueryPage();
     }
 
+    /**
+     * Submit player answer
+     */
     public void submitAnswer() {
         playerAnswer = answerInputText.getText().toString();
         answerText.setText(playerAnswer);
@@ -210,6 +231,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
         displayResultPage();
     }
 
+    /**
+     * End the game, goes to game over screen
+     */
     public void endGame() {
         nextBtn.setText(R.string.text_retry);
         gameOverImage.setImageDrawable(getDrawable(R.drawable.gameover));
@@ -217,6 +241,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
         FirebaseHelper.updateUserGameData("NumberMemory", level);
     }
 
+    /**
+     * Go to start page
+     */
     public void displayStartPage() {
         startPageGroup.setVisibility(View.VISIBLE);
         showNumberGroup.setVisibility(View.GONE);
@@ -224,6 +251,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
         resultGroup.setVisibility(View.GONE);
     }
 
+    /**
+     * Go to show number page
+     */
     public void displayShowNumberPage() {
         startPageGroup.setVisibility(View.GONE);
         showNumberGroup.setVisibility(View.VISIBLE);
@@ -231,6 +261,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
         resultGroup.setVisibility(View.GONE);
     }
 
+    /**
+     * Go to player input page
+     */
     public void displayQueryPage() {
         startPageGroup.setVisibility(View.GONE);
         showNumberGroup.setVisibility(View.GONE);
@@ -238,6 +271,9 @@ public class NumberMemoryActivity extends AppCompatActivity {
         resultGroup.setVisibility(View.GONE);
     }
 
+    /**
+     * Go to results page
+     */
     public void displayResultPage() {
         startPageGroup.setVisibility(View.GONE);
         showNumberGroup.setVisibility(View.GONE);

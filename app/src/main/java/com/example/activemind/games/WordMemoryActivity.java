@@ -44,6 +44,9 @@ public class WordMemoryActivity extends AppCompatActivity {
         setup();
     }
 
+    /**
+     * Initialize variables and buttons
+     */
     private void setup() {
         startPageGroup = binding.StartPageGroup;
         gameGroup = binding.GameGroup;
@@ -72,6 +75,7 @@ public class WordMemoryActivity extends AppCompatActivity {
         seenWordList = new ArrayList<>();
         newWordList = new ArrayList<>();
 
+        // Creates word list
         try {
             InputStream inputStream = getAssets().open("Words.txt");
             int size = inputStream.available();
@@ -131,6 +135,9 @@ public class WordMemoryActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Setup and start new game
+     */
     private void newGame() {
         startPageGroup.setVisibility(View.GONE);
         gameGroup.setVisibility(View.VISIBLE);
@@ -142,6 +149,9 @@ public class WordMemoryActivity extends AppCompatActivity {
         newRound();
     }
 
+    /**
+     * Start next round
+     */
     private void newRound() {
         String levelStr = "Level: " + level;
         levelText.setText(levelStr);
@@ -163,6 +173,9 @@ public class WordMemoryActivity extends AppCompatActivity {
         gameWordText.setText(curWord);
     }
 
+    /**
+     * Seen word button click
+     */
     private void seenWordBtnClick() {
         if (!isSeenWord) {
             wrongInput();
@@ -175,6 +188,9 @@ public class WordMemoryActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * New word button click
+     */
     private void newWordBtnClick() {
         if (isSeenWord) {
             wrongInput();
@@ -186,12 +202,18 @@ public class WordMemoryActivity extends AppCompatActivity {
             endGame();
     }
 
+    /**
+     * When user inputs the wrong answer
+     */
     private void wrongInput() {
         minusLife();
         overlayCountdown = new OverlayCountdown(100L, 100, wrongOverlay);
         overlayCountdown.activate();
     }
 
+    /**
+     * Timer to flash overlay for correct and wrong inputs
+     */
     public class OverlayCountdown extends CountDownTimer {
         View overlay;
         public OverlayCountdown(long millisInFuture, long countDownInterval, View ov) {
@@ -217,11 +239,17 @@ public class WordMemoryActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Go back to start screen from game over screen
+     */
     private void restartGame() {
         startPageGroup.setVisibility(View.VISIBLE);
         resultGroup.setVisibility(View.GONE);
     }
 
+    /**
+     * End the game, goes to game over screen
+     */
     private void endGame() {
         gameGroup.setVisibility(View.GONE);
         resultGroup.setVisibility(View.VISIBLE);
@@ -230,10 +258,17 @@ public class WordMemoryActivity extends AppCompatActivity {
         FirebaseHelper.updateUserGameData("WordMemory", level);
     }
 
+    /**
+     * Minus a life
+     */
     private void minusLife() {
         setLives(lives-1);
     }
 
+    /**
+     * Set current lives
+     * @param i Value to set lives
+     */
     private void setLives(int i) {
         lives = i;
         String livesStr = "Lives: " + lives;
